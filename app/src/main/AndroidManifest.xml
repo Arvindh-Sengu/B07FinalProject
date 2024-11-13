@@ -12,36 +12,60 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07DemoSummer2024"
         tools:targetApi="31">
-        <activity
-            android:name=".ItemAdapater"
-            android:exported="false" />
-        <activity
-            android:name=".Item"
-            android:exported="false" />
-        <activity
-            android:name=".Item2"
-            android:exported="false" />
-        <activity
-            android:name=".SpinnerFragment"
-            android:exported="false" />
-        <activity
-            android:name=".RecyclerViewFragment"
-            android:exported="false" />
-        <activity
-            android:name=".HomeFragment"
-            android:exported="false" />
-        <activity
-            android:name=".Activity2"
-            android:exported="false" />
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- EcoAgent Activity -->
+        <activity
+            android:name=".EcoAgentActivity"
+            android:exported="true"
+            android:label="@string/title_activity_eco_agent"
+            android:theme="@style/Theme.B07DemoSummer2024" />
+
+        <!-- EcoBalance Activity -->
+        <activity
+            android:name=".EcoBalanceActivity"
+            android:exported="true"
+            android:label="@string/title_activity_eco_balance"
+            android:theme="@style/Theme.B07DemoSummer2024" />
+
+        <!-- EcoGauge Activity -->
+        <activity
+            android:name=".EcoGaugeActivity"
+            android:exported="true"
+            android:label="@string/title_activity_eco_gauge"
+            android:theme="@style/Theme.B07DemoSummer2024" />
+
+        <!-- EcoHub Activity -->
+        <activity
+            android:name=".EcoHubActivity"
+            android:exported="true"
+            android:label="@string/title_activity_eco_hub"
+            android:theme="@style/Theme.B07DemoSummer2024" />
+
+        <!-- EcoTracker Activity -->
+        <activity
+            android:name=".EcoTrackerActivity"
+            android:exported="true"
+            android:label="@string/title_activity_eco_tracker"
+            android:theme="@style/Theme.B07DemoSummer2024" />
+
+        <!-- Other Activities -->
+        <activity android:name=".ItemAdapter" android:exported="false" />
+        <activity android:name=".Item" android:exported="false" />
+        <activity android:name=".Item2" android:exported="false" />
+        <activity android:name=".SpinnerFragment" android:exported="false" />
+        <activity android:name=".RecyclerViewFragment" android:exported="false" />
+        <activity android:name=".HomeFragment" android:exported="false" />
+        <activity android:name=".Activity2" android:exported="false" />
+
+    </application>
 </manifest>
