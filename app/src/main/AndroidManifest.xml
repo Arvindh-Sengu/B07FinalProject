@@ -10,12 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.B07DemoSummer2024"
+        android:theme="@style/Theme.B07Planetze"
         tools:targetApi="31">
 
-        <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.B07Planetze.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,49 +22,61 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.example.B07Planetze.HomeScreenActivity"
+            android:exported="true" />
+
+
+        <activity
+            android:name="com.example.B07Planetze.CreateAccountActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.B07Planetze.PasswordResetActivity"
+            android:exported="true" />
+
+
         <!-- EcoAgent Activity -->
         <activity
-            android:name=".EcoAgentActivity"
+            android:name="com.example.B07Planetze.EcoAgentActivity"
             android:exported="true"
             android:label="@string/title_activity_eco_agent"
-            android:theme="@style/Theme.B07DemoSummer2024" />
+            android:theme="@style/Theme.B07Planetze" />
+
 
         <!-- EcoBalance Activity -->
         <activity
-            android:name=".EcoBalanceActivity"
+            android:name="com.example.B07Planetze.EcoBalanceActivity"
             android:exported="true"
             android:label="@string/title_activity_eco_balance"
-            android:theme="@style/Theme.B07DemoSummer2024" />
+            android:theme="@style/Theme.B07Planetze" />
+
 
         <!-- EcoGauge Activity -->
         <activity
-            android:name=".EcoGaugeActivity"
+            android:name="com.example.B07Planetze.EcoGaugeActivity"
             android:exported="true"
             android:label="@string/title_activity_eco_gauge"
-            android:theme="@style/Theme.B07DemoSummer2024" />
+            android:theme="@style/Theme.B07Planetze" />
+
 
         <!-- EcoHub Activity -->
         <activity
-            android:name=".EcoHubActivity"
+            android:name="com.example.B07Planetze.EcoHubActivity"
             android:exported="true"
             android:label="@string/title_activity_eco_hub"
-            android:theme="@style/Theme.B07DemoSummer2024" />
+            android:theme="@style/Theme.B07Planetze" />
+
 
         <!-- EcoTracker Activity -->
         <activity
-            android:name=".EcoTrackerActivity"
+            android:name="com.example.B07Planetze.EcoTrackerActivity"
             android:exported="true"
             android:label="@string/title_activity_eco_tracker"
-            android:theme="@style/Theme.B07DemoSummer2024" />
+            android:theme="@style/Theme.B07Planetze" />
+
 
         <!-- Other Activities -->
-        <activity android:name=".ItemAdapter" android:exported="false" />
-        <activity android:name=".Item" android:exported="false" />
-        <activity android:name=".Item2" android:exported="false" />
-        <activity android:name=".SpinnerFragment" android:exported="false" />
-        <activity android:name=".RecyclerViewFragment" android:exported="false" />
-        <activity android:name=".HomeFragment" android:exported="false" />
-        <activity android:name=".Activity2" android:exported="false" />
 
     </application>
 </manifest>

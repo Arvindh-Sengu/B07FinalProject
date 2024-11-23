@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.b07demosummer2024"
+    namespace = "com.B07Planetze"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.b07demosummer2024"
+        applicationId = "com.B07Planetze"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -25,25 +25,29 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
-
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.database)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
