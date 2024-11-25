@@ -1,4 +1,4 @@
-package com.example.b07demosummer2024.ui.theme
+package com.example.B07Planetze.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

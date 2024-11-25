@@ -1,4 +1,4 @@
-package com.example.b07demosummer2024;
+package com.example.B07Planetze;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.B07Planetze.R;
 
 public class HomeFragment extends Fragment {
 

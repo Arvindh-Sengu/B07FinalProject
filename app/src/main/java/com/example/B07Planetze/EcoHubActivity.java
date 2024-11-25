@@ -1,7 +1,8 @@
-package com.example.b07demosummer2024;
+package com.example.B07Planetze;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import com.B07Planetze.R;
 
 public class EcoHubActivity extends AppCompatActivity {
     @Override
