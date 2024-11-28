@@ -18,4 +18,15 @@
     <string name="title_activity_eco_hub">EcoHubActivity</string>
 
 
+    <string name="eco_gauge_emissions_message">Loading Emissions…</string>
+
+<!--    array for eco gauge time period switching-->
+    <string-array name="time_periods">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
+    </string-array>
+
+
 </resources>
