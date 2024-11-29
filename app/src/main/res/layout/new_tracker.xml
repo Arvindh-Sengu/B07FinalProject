@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/P_Grey"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@color/P_Blue"
+        android:text="Page Title"
+        android:textColor="@color/P_White"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_above="@+id/top_view"/>
+
+
+    <View
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/tracker_bg" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_view"
+        android:rowCount="3"
+        android:columnCount="1"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="365dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/P_White">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transport"
+                    android:layout_gravity="left"
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonWrapper"
+        android:orientation="horizontal"
+        android:background="@color/P_Blue"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/switchBtn"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="45dp"
+            android:background="@drawable/rounded_btn"
+            android:text="Switch Date"
+            android:textColor="@color/P_Blue" />
+
+    </LinearLayout>
+
+</RelativeLayout>

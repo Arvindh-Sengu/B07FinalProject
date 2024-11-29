@@ -1,0 +1,35 @@
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"black\">#FF000000</color>\n    <color name=\"white\">#FFFFFFFF</color>\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 0fdf9ec8c6ea20a818aa1bed76e84c50ed9d4b34)
++++ b/app/src/main/res/values/colors.xml	(date 1732833932060)
+@@ -2,4 +2,5 @@
+ <resources>
+     <color name="black">#FF000000</color>
+     <color name="white">#FFFFFFFF</color>
++    <color name="P_Blue">#009999</color>
+ </resources>
+\ No newline at end of file
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    alias(libs.plugins.android.application)\n    alias(libs.plugins.google.gms.google.services)\n    alias(libs.plugins.kotlin.android)\n    alias(libs.plugins.kotlin.compose)\n}\n\nandroid {\n    namespace = \"com.example.b07demosummer2024\"\n    compileSdk = 34\n\n    defaultConfig {\n        applicationId = \"com.example.b07demosummer2024\"\n        minSdk = 24\n        targetSdk = 34\n        versionCode = 1\n        versionName = \"1.0\"\n\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            isMinifyEnabled = false\n            proguardFiles(getDefaultProguardFile(\"proguard-android-optimize.txt\"), \"proguard-rules.pro\")\n        }\n    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_11\n        targetCompatibility = JavaVersion.VERSION_11\n    }\n    kotlinOptions {\n        jvmTarget = \"11\"\n    }\n    buildFeatures {\n        compose = true\n    }\n}\n\ndependencies {\n\n    implementation(libs.appcompat)\n    implementation(libs.material)\n    implementation(libs.activity)\n    implementation(libs.constraintlayout)\n    implementation(libs.firebase.database)\n    implementation(libs.lifecycle.runtime.ktx)\n    implementation(libs.activity.compose)\n    implementation(platform(libs.compose.bom))\n    implementation(libs.ui)\n    implementation(libs.ui.graphics)\n    implementation(libs.ui.tooling.preview)\n    implementation(libs.material3)\n    testImplementation(libs.junit)\n    androidTestImplementation(libs.ext.junit)\n    androidTestImplementation(libs.espresso.core)\n    androidTestImplementation(platform(libs.compose.bom))\n    androidTestImplementation(libs.ui.test.junit4)\n    debugImplementation(libs.ui.tooling)\n    debugImplementation(libs.ui.test.manifest)\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision 0fdf9ec8c6ea20a818aa1bed76e84c50ed9d4b34)
++++ b/app/build.gradle.kts	(date 1732148729357)
+@@ -41,6 +41,7 @@
+ 
+     implementation(libs.appcompat)
+     implementation(libs.material)
++    implementation("androidx.cardview:cardview:1.0.0")
+     implementation(libs.activity)
+     implementation(libs.constraintlayout)
+     implementation(libs.firebase.database)
