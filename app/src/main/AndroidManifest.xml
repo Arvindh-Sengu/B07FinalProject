@@ -75,6 +75,12 @@
             android:label="@string/title_activity_eco_tracker"
             android:theme="@style/Theme.B07Planetze" />
 
+        <!-- AnnualCarbonFootprint Activity -->
+        <activity
+            android:name="com.example.B07Planetze.AnnualCarbonFootprintActivity"
+            android:exported="true"
+            android:theme="@style/Theme.B07Planetze" />
+
 
         <!-- Other Activities -->
 
