@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
         buttonEcoBalance.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoBalanceActivity.class)));
         buttonEcoHub.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoHubActivity.class)));
         buttonEcoAgent.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoAgentActivity.class)));
-        buttonAnnualCarbonFootprint.setOnClickListener(v -> startActivity(new Intent(getActivity(), AnnualCarbonFootprintActivity.class)));
+        buttonAnnualCarbonFootprint.setOnClickListener(v -> startActivity(new Intent(getActivity(), AnnualCarbonFootprintCountrySelectionActivity.class)));
 
         return view;
     }

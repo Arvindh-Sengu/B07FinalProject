@@ -1,15 +1,13 @@
 package com.example.B07Planetze;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import com.B07Planetze.R;
 
-public class AnnualCarbonFootprintActivity extends AppCompatActivity {
+public class AnnualCarbonFootprintCountrySelectionActivity extends AppCompatActivity {
 
     private Spinner countrySelectionSpinner;
     private Button nextButton;
@@ -27,7 +25,7 @@ public class AnnualCarbonFootprintActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.annual_carbon_footprint);
+        setContentView(R.layout.annual_carbon_footprint_country_selector);
 
         // Initialize UI elements
         countrySelectionSpinner = findViewById(R.id.countrySpinner);
@@ -43,6 +41,17 @@ public class AnnualCarbonFootprintActivity extends AppCompatActivity {
         nextButton.setOnClickListener(v -> {
             String selectedCountry = countrySelectionSpinner.getSelectedItem().toString();
             Double emissionForCountry = countryEmissionsData.get(selectedCountry);
+
+            // Create an intent to navigate to the next activity
+            Intent intent = new Intent(AnnualCarbonFootprintCountrySelectionActivity.this, AnnualCarbonFootprintQuestionsActivity.class);
+
+            //pass the selected country and emission factor to the next activity
+            intent.putExtra("SELECTED_COUNTRY", selectedCountry);
+            intent.putExtra("COUNTRY_EMISSION", emissionForCountry);
+
+            // Start the new activity
+            startActivity(intent);
+
         });
     }
 
@@ -69,6 +78,8 @@ public class AnnualCarbonFootprintActivity extends AppCompatActivity {
 
                 // Add the country to the list for Spinner
                 countryList.add(country);
+
+
             }
             reader.close();
         } catch (IOException e) {
