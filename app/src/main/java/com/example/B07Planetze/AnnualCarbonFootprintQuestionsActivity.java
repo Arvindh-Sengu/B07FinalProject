@@ -1,5 +1,6 @@
 package com.example.B07Planetze;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -14,11 +15,17 @@ public class AnnualCarbonFootprintQuestionsActivity extends AppCompatActivity {
 
     private int currentQuestionIndex = 0;
     private List<Question> questions;
+    private String selectedCountry;
+    private double countryEmission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.annual_carbon_footprint_questions);
+
+        // Retrieve country and emission data from the intent
+        selectedCountry = getIntent().getStringExtra("SELECTED_COUNTRY");
+        countryEmission = getIntent().getDoubleExtra("COUNTRY_EMISSION", 0.0);
 
         // Load the questions using InputQuestions class
         questions = InputQuestions.getQuestions();
@@ -36,7 +43,21 @@ public class AnnualCarbonFootprintQuestionsActivity extends AppCompatActivity {
     }
 
     public void loadNextQuestion(int currentQuestionIndex) {
-        this.currentQuestionIndex = currentQuestionIndex + 1;
+
+        Question currentQuestion = questions.get(currentQuestionIndex);
+        //if user doesn't have car skip car related questions
+        if (currentQuestion.getText().equals("Do you own or regularly use a car?") &&
+                currentQuestion.getAnswer().equals("No")){
+            this.currentQuestionIndex = currentQuestionIndex + 3;
+        }
+        //if user doesn't have a meat based diet skip skip other meat questions
+        else if (currentQuestion.getText().equals("What best describes your diet?") &&
+                !currentQuestion.getAnswer().equals("Meat-based (eat all types of animal products)")) {
+            this.currentQuestionIndex = currentQuestionIndex + 5;
+        }
+        else {
+            this.currentQuestionIndex = currentQuestionIndex + 1;
+        }
 
         if (this.currentQuestionIndex < questions.size()) {
             loadQuestionFragment(questions.get(this.currentQuestionIndex), this.currentQuestionIndex);
@@ -51,7 +72,18 @@ public class AnnualCarbonFootprintQuestionsActivity extends AppCompatActivity {
         double foodEmissions = foodEmissionCalculations();
         double housingEmissions = housingEmissionCalculations();
         double consumptionEmissions = consumptionEmissionCalculations();
-        Toast.makeText(this, "Survey completed!", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, AnnualCarbonFootprintResultsActivity.class);
+        intent.putExtra("TRANSPORTATION_EMISSIONS", transportationEmissions);
+        intent.putExtra("FOOD_EMISSIONS", foodEmissions);
+        intent.putExtra("HOUSING_EMISSIONS", housingEmissions);
+        intent.putExtra("CONSUMPTION_EMISSIONS", consumptionEmissions);
+        intent.putExtra("SELECTED_COUNTRY", selectedCountry);
+        intent.putExtra("COUNTRY_EMISSION", countryEmission);
+
+        startActivity(intent);
+        finish();
+
     }
 
     public double transportationEmissionCalculations(){

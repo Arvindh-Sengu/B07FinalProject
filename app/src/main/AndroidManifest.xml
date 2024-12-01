@@ -87,6 +87,11 @@
             android:exported="true"
             android:theme="@style/Theme.B07Planetze" />
 
+        <!-- AnnualCarbonFootprintResults Activity -->
+        <activity
+            android:name="com.example.B07Planetze.AnnualCarbonFootprintResultsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.B07Planetze" />
 
         <!-- Other Activities -->
 
