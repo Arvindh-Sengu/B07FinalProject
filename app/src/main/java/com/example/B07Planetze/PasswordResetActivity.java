@@ -25,10 +25,12 @@ public class PasswordResetActivity extends AppCompatActivity {
         // Initialize mAuth
         mAuth = FirebaseAuth.getInstance();
 
+        // UI set up
         EditText emailEditText = findViewById(R.id.emailEditText);
         Button sendEmailButton = findViewById(R.id.sendEmailButton);
         TextView openLogin = findViewById(R.id.openLogin);
 
+        //Listener for the Send email button
         sendEmailButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
 
@@ -46,6 +48,8 @@ public class PasswordResetActivity extends AppCompatActivity {
         });
     }
 
+    // Call firebase to check if the email is linked to an account, send email
+    // if so sends error if not
     private void sendPasswordResetEmail(String email) {
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(this, task -> {
