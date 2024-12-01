@@ -61,7 +61,14 @@ public class QuestionFragment extends Fragment {
             if (options != null) {
                 for (String option : options) {
                     RadioButton radioButton = new RadioButton(getActivity());
-                    radioButton.setText(option);
+
+                    //The csv has text as 5 Occupants but need to add or more and i don't wanna change the large data set
+                    if (option.equals("5 Occupants")){
+                        radioButton.setText(option + " or more");
+                    }
+                    else {
+                        radioButton.setText(option);
+                    }
                     radioButton.setId(View.generateViewId());
                     answerGroup.addView(radioButton);
                 }
@@ -72,7 +79,13 @@ public class QuestionFragment extends Fragment {
         nextButton.setOnClickListener(v -> {
             String answer = getSelectedAnswer();
             if (answer != null && question != null) {
-                question.setAnswer(answer);  // Set the selected answer in the Question object
+                //The csv has text as 5 Occupants but need to add or more and i don't wanna change the large data set
+                if (answer.equals("5 Occupants or more")) {
+                    question.setAnswer("5 Occupants");
+                } else {
+                    question.setAnswer(answer);  // Set the selected answer in the Question object
+
+                }
             }
 
             // Optionally, notify the activity to load the next question

@@ -36,7 +36,7 @@ public class InputQuestions {
 
         // Housing
         questions.add(new Question("What type of home do you live in?", new String[]{"Detached house", "Semi-detached house", "Townhouse", "Condo/Apartment", "Other"}));
-        questions.add(new Question("How many people live in your household?", new String[]{"1", "2", "3-4", "5 or more"}));
+        questions.add(new Question("How many people live in your household?", new String[]{"1 Occupant", "2 Occupants", "3-4 Occupants", "5 Occupants"}));
         questions.add(new Question("What is the size of your home?", new String[]{"Under 1000 sq. ft.", "1000-2000 sq. ft.", "Over 2000 sq. ft."}));
         questions.add(new Question("What type of energy do you use to heat your home?", new String[]{"Natural Gas", "Electricity", "Oil", "Propane", "Wood", "Other"}));
         questions.add(new Question("What is your average monthly electricity bill?", new String[]{"Under $50", "$50-$100", "$100-$150", "$150-$200", "Over $200"}));
