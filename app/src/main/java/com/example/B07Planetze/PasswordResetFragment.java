@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.B07Planetze.R;
 
-public class PasswordResetFragment extends Fragment implements PasswordResetView {
+public class PasswordResetFragment extends Fragment implements PasswordResetPresenter {
 
     private PasswordResetModel presenter;
     private EditText emailEditText;

@@ -5,12 +5,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class CreateAccountModelImpl implements CreateAccountModel {
 
     // Reference to the view
-    private final CreateAccountView view;
+    private final CreateAccountPresenter view;
     // Firebase authentication instance for handling user accounts
     private final FirebaseAuth mAuth;
 
     // Constructor to initialize the view and FirebaseAuth instance
-    public CreateAccountModelImpl(CreateAccountView view) {
+    public CreateAccountModelImpl(CreateAccountPresenter view) {
         this.view = view;
         this.mAuth = FirebaseAuth.getInstance();
     }

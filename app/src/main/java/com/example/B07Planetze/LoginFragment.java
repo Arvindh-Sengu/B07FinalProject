@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.B07Planetze.R;
 // as this is responsible for connecting the front end to the back end logic as well as
 // basic front end methods and functions this would be the presenter
-public class LoginFragment extends Fragment implements LoginView {
+public class LoginFragment extends Fragment implements LoginPresenter {
 
     // UI set up
     private LoginModel presenter;

@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.B07Planetze.R;
 
-public class CreateAccountFragment extends Fragment implements CreateAccountView {
+public class CreateAccountFragment extends Fragment implements CreateAccountPresenter {
 
     private CreateAccountModel presenter;
 

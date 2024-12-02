@@ -5,12 +5,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginModelImpl implements LoginModel {
 
     // Reference to the view
-    private final LoginView view;
+    private final LoginPresenter view;
     // Firebase authentication instance for handling user accounts
     private final FirebaseAuth mAuth;
 
     // Constructor to initialize the view and FirebaseAuth instance
-    public LoginModelImpl(LoginView view) {
+    public LoginModelImpl(LoginPresenter view) {
         this.view = view;
         this.mAuth = FirebaseAuth.getInstance();
     }
