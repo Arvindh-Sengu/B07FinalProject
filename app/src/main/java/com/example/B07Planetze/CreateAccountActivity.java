@@ -66,8 +66,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(CreateAccountActivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
 
-                        // Open Home Screen After Success
-                        Intent intent = new Intent(CreateAccountActivity.this, HomeScreenActivity.class);
+                        // Open WelcomeActivity which leads to the Annual Carbon Footprint survey after creating an account
+                        Intent intent = new Intent(CreateAccountActivity.this, WelcomeActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
