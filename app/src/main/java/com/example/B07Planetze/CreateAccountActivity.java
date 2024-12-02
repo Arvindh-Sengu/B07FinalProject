@@ -10,7 +10,6 @@ public class CreateAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Load the CreateAccountFragment
         if (savedInstanceState == null) {
             getSupportFragmentManager()

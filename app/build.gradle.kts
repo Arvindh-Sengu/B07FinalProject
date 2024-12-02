@@ -64,4 +64,5 @@ dependencies {
     testImplementation("org.robolectric:robolectric:4.10.3")
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }

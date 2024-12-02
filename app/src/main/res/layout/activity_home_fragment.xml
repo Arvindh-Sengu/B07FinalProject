@@ -50,5 +50,14 @@
         app:layout_constraintTop_toBottomOf="@id/Eco_Hub"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/Annual_Carbon_Footprint"
+        android:layout_width="600dp"
+        android:layout_height="70dp"
+        android:text="Recalculate Carbon Footprint"
+        app:layout_constraintTop_toBottomOf="@id/Eco_Tracker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

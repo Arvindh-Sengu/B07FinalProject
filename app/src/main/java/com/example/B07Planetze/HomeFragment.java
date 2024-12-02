@@ -23,12 +23,14 @@ public class HomeFragment extends Fragment {
         Button buttonEcoBalance = view.findViewById(R.id.Eco_Balance);
         Button buttonEcoHub = view.findViewById(R.id.Eco_Hub);
         Button buttonEcoAgent = view.findViewById(R.id.Eco_Agent);
+        Button buttonAnnualCarbonFootprint = view.findViewById(R.id.Annual_Carbon_Footprint);
 
         buttonEcoTracker.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoTrackerActivity.class)));
         buttonEcoGauge.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoGaugeActivity.class)));
         buttonEcoBalance.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoBalanceActivity.class)));
         buttonEcoHub.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoHubActivity.class)));
         buttonEcoAgent.setOnClickListener(v -> startActivity(new Intent(getActivity(), EcoAgentActivity.class)));
+        buttonAnnualCarbonFootprint.setOnClickListener(v -> startActivity(new Intent(getActivity(), AnnualCarbonFootprintCountrySelectionActivity.class)));
 
         return view;
     }
