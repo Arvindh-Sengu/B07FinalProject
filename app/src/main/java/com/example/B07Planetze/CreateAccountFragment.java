@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.B07Planetze.R;
@@ -20,9 +17,8 @@ public class CreateAccountFragment extends Fragment implements CreateAccountPres
 
     private CreateAccountModel presenter;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the activity_create_account.xml layout
         View view = inflater.inflate(R.layout.activity_create_account, container, false);
 
