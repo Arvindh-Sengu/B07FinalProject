@@ -1,16 +1,28 @@
 package com.example.B07Planetze;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Date {
-    private ArrayList<Entry> entries; // List of all entries for the date
-
+    private LocalDate date; 
+    private ArrayList<Entry> entries; 
+    
     // Constructor
-    public Date() {
+    public Date(LocalDate date) {
+        this.date = date;
         this.entries = new ArrayList<>();
     }
 
-    // Getters and Setters
+    // Getter for date
+    public LocalDate getDate() {
+        return date;
+    }
+
+    // Setter for date
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     public ArrayList<Entry> getEntries() {
         return entries;
     }
@@ -19,17 +31,17 @@ public class Date {
         this.entries = entries;
     }
 
-    // Add an entry to the list
+    // Add an user entry to the list
     public void addEntry(Entry entry) {
         this.entries.add(entry);
     }
 
-    // ToString for debugging
+    // ToString shows date and date's entries
     @Override
     public String toString() {
         return "Date{" +
-                "entries=" + entries +
+                "date=" + date +
+                ", entries=" + entries +
                 '}';
     }
 }
-
