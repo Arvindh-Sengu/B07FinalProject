@@ -15,7 +15,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,6 +40,8 @@ android {
 }
 
 dependencies {
+    testImplementation("org.mockito:mockito-core:4.0.0")
+    androidTestImplementation("org.mockito:mockito-android:4.0.0")
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
@@ -60,6 +61,7 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
+    testImplementation("org.robolectric:robolectric:4.10.3")
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
