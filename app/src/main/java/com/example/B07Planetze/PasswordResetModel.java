@@ -1,6 +1,6 @@
 package com.example.B07Planetze;
 
-public interface PasswordResetPresenter {
+public interface PasswordResetModel {
     void handlePasswordReset(String email);
 }
 

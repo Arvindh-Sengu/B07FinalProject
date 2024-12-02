@@ -17,7 +17,7 @@ import com.B07Planetze.R;
 
 public class PasswordResetFragment extends Fragment implements PasswordResetView {
 
-    private PasswordResetPresenter presenter;
+    private PasswordResetModel presenter;
     private EditText emailEditText;
 
     @Nullable
@@ -26,7 +26,7 @@ public class PasswordResetFragment extends Fragment implements PasswordResetView
         View view = inflater.inflate(R.layout.activity_password_reset, container, false);
 
         // Initialize Presenter
-        presenter = new PasswordResetPresenterImpl(this);
+        presenter = new PasswordResetModelImpl(this);
 
         // UI Setup
         emailEditText = view.findViewById(R.id.emailEditText);

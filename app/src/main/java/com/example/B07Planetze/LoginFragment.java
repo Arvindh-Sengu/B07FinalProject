@@ -15,11 +15,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.B07Planetze.R;
-
+// as this is responsible for connecting the front end to the back end logic as well as
+// basic front end methods and functions this would be the presenter
 public class LoginFragment extends Fragment implements LoginView {
 
     // UI set up
-    private LoginPresenter presenter;
+    private LoginModel presenter;
     private EditText emailEditText;
     private EditText passwordEditText;
 
@@ -29,7 +30,7 @@ public class LoginFragment extends Fragment implements LoginView {
         View view = inflater.inflate(R.layout.activity_login, container, false);
 
         // Initialize Presenter
-        presenter = new LoginPresenterImpl(this);
+        presenter = new LoginModelImpl(this);
 
         // UI Setup
         emailEditText = view.findViewById(R.id.emailEditText);

@@ -18,7 +18,7 @@ import com.B07Planetze.R;
 
 public class CreateAccountFragment extends Fragment implements CreateAccountView {
 
-    private CreateAccountPresenter presenter;
+    private CreateAccountModel presenter;
 
     @Nullable
     @Override
@@ -27,7 +27,7 @@ public class CreateAccountFragment extends Fragment implements CreateAccountView
         View view = inflater.inflate(R.layout.activity_create_account, container, false);
 
         // Initialize Presenter
-        presenter = new CreateAccountPresenterImpl(this);
+        presenter = new CreateAccountModelImpl(this);
 
         // UI Setup
         EditText nameEditText = view.findViewById(R.id.nameEnterEditText);

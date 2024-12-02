@@ -4,7 +4,7 @@ import android.util.Patterns;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class PasswordResetPresenterImpl implements PasswordResetPresenter {
+public class PasswordResetModelImpl implements PasswordResetModel {
 
     // Reference to the view
     private final PasswordResetView view;
@@ -12,7 +12,7 @@ public class PasswordResetPresenterImpl implements PasswordResetPresenter {
     private final FirebaseAuth mAuth;
 
     // Constructor to initialize the view and FirebaseAuth instance
-    public PasswordResetPresenterImpl(PasswordResetView view) {
+    public PasswordResetModelImpl(PasswordResetView view) {
         this.view = view;
         this.mAuth = FirebaseAuth.getInstance();
     }

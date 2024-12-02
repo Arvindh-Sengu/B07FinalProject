@@ -2,7 +2,7 @@ package com.example.B07Planetze;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CreateAccountPresenterImpl implements CreateAccountPresenter {
+public class CreateAccountModelImpl implements CreateAccountModel {
 
     // Reference to the view
     private final CreateAccountView view;
@@ -10,7 +10,7 @@ public class CreateAccountPresenterImpl implements CreateAccountPresenter {
     private final FirebaseAuth mAuth;
 
     // Constructor to initialize the view and FirebaseAuth instance
-    public CreateAccountPresenterImpl(CreateAccountView view) {
+    public CreateAccountModelImpl(CreateAccountView view) {
         this.view = view;
         this.mAuth = FirebaseAuth.getInstance();
     }

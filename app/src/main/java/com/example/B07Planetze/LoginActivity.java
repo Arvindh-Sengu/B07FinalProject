@@ -4,7 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-// Really just UI set up honestly
+// As this sets up the UI made in the viewer this would be
+// the presenter
 public class LoginActivity extends AppCompatActivity {
 
     @Override
