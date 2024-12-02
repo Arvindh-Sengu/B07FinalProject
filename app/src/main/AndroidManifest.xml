@@ -93,6 +93,12 @@
             android:exported="true"
             android:theme="@style/Theme.B07Planetze" />
 
+        <!-- Welcome Activity -->
+        <activity
+            android:name="com.example.B07Planetze.WelcomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.B07Planetze" />
+
         <!-- Other Activities -->
 
     </application>
