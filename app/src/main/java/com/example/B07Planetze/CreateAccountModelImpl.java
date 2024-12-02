@@ -35,7 +35,7 @@ public class CreateAccountModelImpl implements CreateAccountModel {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         view.showSuccess("Account created successfully!");
-                        view.navigateToHomeScreen();
+                        view.navigateToWelcomeScreen();
                     } else {
                         view.showError("Error: " + task.getException().getMessage());
                     }

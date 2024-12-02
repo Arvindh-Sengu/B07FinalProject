@@ -88,6 +88,12 @@ public class CreateAccountFragment extends Fragment implements CreateAccountPres
         requireActivity().finish();
     }
 
+    public void navigateToWelcomeScreen() {
+        Intent intent = new Intent(getActivity(), WelcomeActivity.class);
+        startActivity(intent);
+        requireActivity().finish();
+    }
+
     // navigates user to the login screen
     @Override
     public void navigateToLoginScreen() {

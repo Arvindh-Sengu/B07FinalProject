@@ -5,5 +5,6 @@ public interface CreateAccountPresenter {
     void showError(String message);
     void showSuccess(String message);
     void navigateToHomeScreen();
+    void navigateToWelcomeScreen();
     void navigateToLoginScreen();
 }
