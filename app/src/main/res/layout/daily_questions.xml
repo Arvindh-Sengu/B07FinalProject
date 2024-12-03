@@ -1,26 +1,261 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#d8db"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:ignore="ExtraText">
+    android:background="@color/P_Grey">
 
-
+    <!-- Transportation Activities -->
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tracker"
-        android:textSize="14sp"
-        android:textColor="#009999"
+        android:text="Transportation Activities"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:shadowColor="#7F000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2"
-        >
-    </TextView>  <!-- Shadow color -->
+        android:textColor="@color/P_Black"
+        android:paddingBottom="8dp" />
+
+    <!-- Drive Personal Vehicle -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance Driven (km):"
+            android:textColor="@color/P_Black"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/distanceDriven"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="numberDecimal"
+            android:textColor="@color/P_Black"
+            android:hint="Enter km" />
+    </LinearLayout>
+
+    <!-- Take Public Transportation -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:text="Time Spent on Public Transport (hours):"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/publicTransportTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/P_Black"
+            android:inputType="numberDecimal"
+            android:hint="Enter hours" />
+    </LinearLayout>
+
+    <!-- Cycling or Walking -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:text="Distance Cycled/Walked (km):"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/distanceCycled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/P_Black"
+            android:inputType="numberDecimal"
+            android:hint="Enter km" />
+    </LinearLayout>
+
+    <!-- Flight -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Flights:"
+            android:textColor="@color/P_Black"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/numOfFlights"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/P_Black"
+            android:inputType="number"
+            android:hint="Enter number of flights" />
+    </LinearLayout>
+
+    <!-- Food Consumption Activities -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Food Consumption Activities"
+        android:textSize="18sp"
+        android:textColor="@color/P_Black"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <!-- Meal Type -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type of Meal:"
+            android:textColor="@color/P_Black"
+            android:layout_marginEnd="8dp"/>
+        <Spinner
+            android:id="@+id/mealTypeSpinner"
+            android:layout_width="0dp"
+            android:textColor="@color/P_Black"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/meal_types" />
+    </LinearLayout>
+
+    <!-- Number of Servings -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:text="Number of Servings:"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/numOfServings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/P_Black"
+            android:inputType="number"
+            android:hint="Enter servings" />
+    </LinearLayout>
+
+    <!-- Consumption and Shopping Activities -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consumption and Shopping Activities"
+        android:textSize="18sp"
+        android:textColor="@color/P_Black"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <!-- Buy New Clothes -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:text="Number of Clothes Purchased:"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/clothingPurchased"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/P_Black"
+            android:inputType="number"
+            android:hint="Enter number of clothes" />
+    </LinearLayout>
+
+    <!-- Buy Electronics -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:text="Number of Electronics Purchased:"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/electronicsPurchased"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:hint="Enter number of electronics" />
+    </LinearLayout>
+
+    <!-- Bill Amount -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/P_Black"
+            android:text="Bill Amount ($):"
+            android:layout_marginEnd="8dp"/>
+        <EditText
+            android:id="@+id/billAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/P_Black"
+            android:inputType="numberDecimal"
+            android:hint="Enter bill amount" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:gravity="center_horizontal">
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Back"
+            android:onClick="onBackClicked" />
+
+        <!-- Add Entry Button -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Entry"
+            android:onClick="onSubmitClicked" />
+    </LinearLayout>
 </LinearLayout>
+

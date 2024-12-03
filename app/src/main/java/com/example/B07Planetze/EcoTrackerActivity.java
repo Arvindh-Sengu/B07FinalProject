@@ -8,7 +8,7 @@ public class EcoTrackerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eco_tracker);
+        setContentView(R.layout.new_tracker);
         setTitle("Eco Tracker");
     }
 }

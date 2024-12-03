@@ -22,5 +22,11 @@
         <item name="colorOnError">@color/white</item>
     </style>
 
+    <style name="CustomButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/rounded_btn</item>
+        <item name="android:textColor">@color/P_White</item>
+    </style>
+
+
     <style name="Theme.B07Planetze" parent="Base.Theme.B07Planetze" />
 </resources>

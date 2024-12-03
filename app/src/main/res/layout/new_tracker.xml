@@ -315,10 +315,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="45dp"
-            android:background="@drawable/rounded_btn"
+            android:backgroundTint="@color/P_White"
             android:text="Switch Date"
             android:textStyle="bold"
             android:textColor="@color/P_Blue"
+            android:layout_below="@id/top_view"
             />
 
     </LinearLayout>
