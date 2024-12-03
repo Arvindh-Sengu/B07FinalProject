@@ -1,14 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eco Hub"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-</LinearLayout>
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- First Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resources for Reducing Energy"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Resource 1 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Energy Star: Comprehensive energy-saving programs."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_energy_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit Energy Star"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Resource 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Department of Energy: Federal resources for energy efficiency."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_department_energy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit Department of Energy"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Resource 3 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Carbon Trust: Guides on reducing carbon footprints."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_carbon_trust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit Carbon Trust"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Second Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potential Energy-Saving Products"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Product 1 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Sustainable clothing: Eco-friendly apparel options."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_sustainable_clothing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explore Sustainable Clothing"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Product 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Energy-efficient appliances: Save energy at home."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_energy_appliances"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discover Energy Appliances"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Product 3 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Smart thermostats: Efficient heating and cooling."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_smart_thermostats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse Smart Thermostats"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Product 4 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. LED lights: Long-lasting and energy-saving."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_led_lights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check LED Lights"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Product 5 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Solar panels: Harness renewable energy."
+            android:layout_marginBottom="4dp" />
+        <Button
+            android:id="@+id/btn_solar_panels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn about Solar Panels"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+</ScrollView>
