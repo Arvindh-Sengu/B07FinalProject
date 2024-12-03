@@ -22,7 +22,7 @@ import java.util.List;
 public class BarChartFragment extends Fragment {
 
     private ArrayList<Float> chartData; // Data to display
-    private int spinnerPosition; // Spinner position: 0 (Weekly), 1 (Monthly), 2 (Yearly)
+    private int spinnerPosition; // Spinner position: 1 (Weekly), 2 (Monthly), 3 (Yearly)
     private BarChart barChart;
 
     public static BarChartFragment newInstance(ArrayList<Float> chartData, int spinnerPosition) {
@@ -81,18 +81,22 @@ public class BarChartFragment extends Fragment {
 
     private List<String> getXAxisLabels() {
         switch (spinnerPosition) {
-            case 0: // Weekly
+            case 1: // Weekly
                 return List.of("S", "M", "T", "W", "T", "F", "S");
-            case 1: // Monthly
+            case 2: // Monthly
                 List<String> monthlyLabels = new ArrayList<>();
                 for (int i = 1; i <= chartData.size(); i++) {
                     monthlyLabels.add(String.valueOf(i));
                 }
                 return monthlyLabels;
-            case 2: // Yearly
+            case 3: // Yearly
                 return List.of("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
             default:
                 return new ArrayList<>(); // Fallback to an empty list
         }
+    }
+    // Interface to pass data to the activity
+    public interface DataListener {
+        void onDataSelected(HashMap<String, Float> emissionDetails);
     }
 }

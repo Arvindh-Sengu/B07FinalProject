@@ -1,5 +1,7 @@
 package com.example.b07demosummer2024;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -11,56 +13,99 @@ import java.util.HashMap;
 
 public class ChartPagerAdapter extends FragmentStateAdapter {
 
-    private HashMap<String, Float> categoricalData;
-    private ArrayList<Float> PeriodicalData;
+    private final Context context; // Context for categorical data
+    private final HashMap<LocalDate, HashMap<String, Float>> rawData; // Raw emissions data
+    private final int selectedTimePeriod; // Spinner selection (0: Weekly, 1: Monthly, 2: Yearly)
+    private final LocalDate selectedDate; // Reference date (e.g., today)
 
-    private HashMap<String, Float> barchartStuff;
-    private int selectedTimePeriod;
-
-    private HashMap <LocalDate, HashMap <String, Float>> rawData;
-
-    public ChartPagerAdapter(@NonNull FragmentActivity fragmentActivity, HashMap <LocalDate, HashMap <String, Float>> rawData, int selectedTimePeriod) {
+    public ChartPagerAdapter(@NonNull FragmentActivity fragmentActivity,
+                             HashMap<LocalDate, HashMap<String, Float>> rawData,
+                             int selectedTimePeriod,
+                             LocalDate selectedDate) {
         super(fragmentActivity);
         this.rawData = rawData;
+        this.context = fragmentActivity;
         this.selectedTimePeriod = selectedTimePeriod;
+        this.selectedDate = selectedDate;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if (selectedTimePeriod == 0){
 
-
-
-            return PieChartFragment.newInstance(categoricalData);
-        }
-
-        switch (position) {
+        switch (selectedTimePeriod) {
             case 0:
-                HashMap<String, Float> dummyData = new HashMap<>();
-                dummyData.put("Transport", 5.0f);
-                dummyData.put("Electricity", 7.5f);
-                dummyData.put("Heating", 3.2f);
-                dummyData.put("Waste", 4.0f);
-                return BarChartFragment.newInstance(dummyData);
+                HashMap<String, Float> dailyPieChartData = DataProcessor.getDailyCategoricalData(rawData, selectedDate, context);
+                return PieChartFragment.newInstance(dailyPieChartData);
+
             case 1:
-                return PieChartFragment.newInstance(data_em_by_categories);
+                switch (position) {
+                    case 0: // Bar Chart
+                        ArrayList<Float> weeklyBarChartData = DataProcessor.getWeeklyChartData(rawData, selectedDate);
+                        return BarChartFragment.newInstance(weeklyBarChartData, 1);
+
+                    case 1: // Pie Chart
+                        HashMap<String, Float> weeklyPieChartData = DataProcessor.getWeeklyCategoricalData(rawData, selectedDate, context);
+                        return PieChartFragment.newInstance(weeklyPieChartData);
+
+                    case 2: // Line Chart
+                        ArrayList<Float> weeklyLineChartData = DataProcessor.getWeeklyChartData(rawData, selectedDate);
+                        return LineChartFragment.newInstance(weeklyLineChartData);
+
+                    default:
+                        throw new IllegalArgumentException("Invalid chart position");
+                }
+
             case 2:
-                return LineChartFragment.newInstance(data_em_by_day);
+                switch (position) {
+                    case 0: // Bar Chart
+                        ArrayList<Float> monthlyBarChartData = DataProcessor.getMonthlyChartData(rawData, selectedDate);
+                        return BarChartFragment.newInstance(monthlyBarChartData, 1);
+
+                    case 1: // Pie Chart
+                        HashMap<String, Float> monthlyPieChartData = DataProcessor.getMonthlyCategoricalData(rawData, selectedDate, context);
+                        return PieChartFragment.newInstance(monthlyPieChartData);
+
+                    case 2: // Line Chart
+                        ArrayList<Float> monthlyLineChartData = DataProcessor.getMonthlyChartData(rawData, selectedDate);
+                        return LineChartFragment.newInstance(monthlyLineChartData);
+
+                    default:
+                        throw new IllegalArgumentException("Invalid chart position");
+                }
+
+            case 3:
+                switch (position) {
+                    case 0: // Bar Chart
+                        ArrayList<Float> yearlyBarChartData = DataProcessor.getYearlyChartData(rawData, selectedDate);
+                        return BarChartFragment.newInstance(yearlyBarChartData, 1);
+
+                    case 1: // Pie Chart
+                        HashMap<String, Float> yearlyPieChartData = DataProcessor.getYearlyCategoricalData(rawData, selectedDate, context);
+                        return PieChartFragment.newInstance(yearlyPieChartData);
+
+                    case 2: // Line Chart
+                        ArrayList<Float> yearlyLineChartData = DataProcessor.getLineChartYearlyData(rawData, selectedDate);
+                        return LineChartFragment.newInstance(yearlyLineChartData);
+
+                    default:
+                        throw new IllegalArgumentException("Invalid chart position");
+                }
+
             default:
-                return PieChartFragment.newInstance(data_em_by_categories);
+                throw new IllegalArgumentException("Invalid time period");
         }
+
     }
 
     @Override
     public int getItemCount() {
-        return selectedTimePeriod == 0 ? 1 : 3; // Number of chart types
+        if (selectedTimePeriod == 0) {
+            return 1;
+        }
+
+        return 3; // Number of chart types (Bar, Pie, Line)
     }
 
-//    public void updateData(ArrayList<Float> newData, int selectedTimePeriod) {
-//        this.data = newData;
-//        this.selectedTimePeriod = selectedTimePeriod;
-//        notifyDataSetChanged();
-//    }
 
 }

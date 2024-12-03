@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,6 +30,8 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
 
     private TabLayoutMediator mediator;
 
+    private LocalDate currentDate = LocalDate.of(2024, 12, 15);
+    //bro set the current date to the 2nd date and was wondering why only 2 data points showed....
 
 
 
@@ -37,7 +40,7 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
 
 
         //temporary data
-        HashMap<Integer, HashMap<String, Float>> emissionsData = ExampleData.getEmissionsData();
+        HashMap<LocalDate, HashMap<String, Float>> emissionsData = ExampleData.getEmissionsData();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eco_gauge);
@@ -51,7 +54,7 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
 
         // Set up ViewPager2 for swiping between charts
         viewPager = findViewById(R.id.viewPager);
-        chartPagerAdapter = new ChartPagerAdapter(this, getDummyDataForCategories(0), getDummyDataForTimePeriod(0), 0);
+        chartPagerAdapter = new ChartPagerAdapter(this, ExampleData.getEmissionsData(), 0, currentDate);
         viewPager.setAdapter(chartPagerAdapter);
 
         // dot indicators
@@ -90,10 +93,9 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
         timePeriodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, android.view.View view, int position, long id) {
-                ArrayList<Float> newCategoricalData = getDummyDataForCategories(position);
-                ArrayList<Float> newPeriodicalData = getDummyDataForTimePeriod(position);
-                chartPagerAdapter = new ChartPagerAdapter(EcoGaugeActivity.this, newCategoricalData, newPeriodicalData, position);
+                chartPagerAdapter = new ChartPagerAdapter(EcoGaugeActivity.this, emissionsData, position, currentDate);
                 viewPager.setAdapter(chartPagerAdapter);
+                chartPagerAdapter.notifyDataSetChanged();
 
             }
 
@@ -119,36 +121,6 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
     public void onDataSelected(HashMap<String, Float> emissionData) {
         if (infoCardFragment != null && emissionData != null) {
             infoCardFragment.populateTable(emissionData);
-        }
-    }
-    // Simulated data for different time periods
-    private ArrayList<Float> getDummyDataForCategories(int timePeriod) {
-        switch (timePeriod) {
-            case 0: // Daily
-                return new ArrayList<>(Arrays.asList(1.5f, 2.0f, 2.5f));
-            case 1: // Weekly
-                return new ArrayList<>(Arrays.asList(10f, 15f, 20f));
-            case 2: // Monthly
-                return new ArrayList<>(Arrays.asList(40f, 20f, 60f));
-            case 3: // Yearly
-                return new ArrayList<>(Arrays.asList(400f, 500f, 600f));
-            default:
-                return new ArrayList<>();
-        }
-    }
-
-    private ArrayList<Float> getDummyDataForTimePeriod(int timePeriod) {
-        switch (timePeriod) {
-            case 0: // Daily
-                return new ArrayList<>(Arrays.asList(5f, 4f, 25f));
-            case 1: // Weekly
-                return new ArrayList<>(Arrays.asList(30f, 1f, 15f));
-            case 2: // Monthly
-                return new ArrayList<>(Arrays.asList(20f, 20f, 30f));
-            case 3: // Yearly
-                return new ArrayList<>(Arrays.asList(371f, 500f, 681f));
-            default:
-                return new ArrayList<>();
         }
     }
 

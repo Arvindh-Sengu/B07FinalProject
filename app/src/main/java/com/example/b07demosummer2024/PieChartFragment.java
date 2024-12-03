@@ -3,6 +3,7 @@ package com.example.b07demosummer2024;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,13 +54,12 @@ public class PieChartFragment extends Fragment {
         }
 
         // Create a PieDataSet
-        PieDataSet dataSet = new PieDataSet(entries, "Emissions by Category");
+        PieDataSet dataSet = new PieDataSet(entries, "");
         dataSet.setColors(new int[]{
-                getResources().getColor(android.R.color.holo_blue_light),
-                getResources().getColor(android.R.color.holo_green_light),
-                getResources().getColor(android.R.color.holo_red_light),
-                getResources().getColor(android.R.color.holo_orange_light),
-                getResources().getColor(android.R.color.holo_purple)
+                ContextCompat.getColor(getContext(), R.color.aquamarine),
+                ContextCompat.getColor(getContext(), R.color.slate),
+                ContextCompat.getColor(getContext(), R.color.blue_gray),
+
         }); // Customize colors
 
         // Assign PieData to PieChart

@@ -6,166 +6,220 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 public class DataProcessor {
 
-
-
     /**
-     * Processes the pie chart / categorical data based on the time period.
+     * Processes the categorical data for the daily time period (0).
      * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
-     * @param timePeriod The time period: 0 (Weekly), 1 (Monthly), 2 (Yearly).
      * @param selectedDate The reference date (e.g., today).
-     * @return An ArrayList<Float> of emissions totals by category for the selected period.
+     * @param context The context for accessing resources.
+     * @return A HashMap of category totals.
      */
-    public static HashMap<String, Float> getCategoricalData(
+    public static HashMap<String, Float> getDailyCategoricalData(
             HashMap<LocalDate, HashMap<String, Float>> emissionsData,
-            int timePeriod,
             LocalDate selectedDate,
             Context context) {
 
-        // Initialize categoryTotals with all categories from the string array and default values of 0
-        HashMap<String, Float> categoryTotals = new HashMap<>();
-        String[] categories = context.getResources().getStringArray(R.array.Categories);
-        for (String category : categories) {
-            categoryTotals.put(category, 0f);
-        }
+        HashMap<String, Float> categoryTotals = initializeCategoryTotals(context);
+        HashMap<String, Float> dayData = emissionsData.get(selectedDate);
 
-        switch (timePeriod) {
-            case 0: // Daily: Consider the categories from a single day
-                HashMap<String, Float> dayData = emissionsData.get(selectedDate);
-                if (dayData != null) {
-                    for (String category : categoryTotals.keySet()) {
-                        Float value = dayData.getOrDefault(category, 0f);
-                        categoryTotals.put(category, categoryTotals.get(category) + value);
-                    }
-                }
-                break;
-
-            case 1: // Weekly: Consider the categories from Sunday to today (weekly)
-                LocalDate startOfWeek = selectedDate.minusDays(selectedDate.getDayOfWeek().getValue() % 7); // Last Sunday
-                for (int i = 0; i <= selectedDate.getDayOfWeek().getValue(); i++) {
-                    LocalDate currentDay = startOfWeek.plusDays(i);
-                    HashMap<String, Float> weeklyData = emissionsData.get(currentDay);
-                    if (weeklyData != null) {
-                        for (String category : categoryTotals.keySet()) {
-                            Float value = weeklyData.getOrDefault(category, 0f);
-                            categoryTotals.put(category, categoryTotals.get(category) + value);
-                        }
-                    }
-                }
-                break;
-
-            case 2: // Monthly: Consider the categories from 1st of the month to today (monthly)
-                LocalDate startOfMonth = selectedDate.withDayOfMonth(1);
-                int daysInMonth = selectedDate.getDayOfMonth();
-                for (int i = 0; i < daysInMonth; i++) {
-                    LocalDate currentDay = startOfMonth.plusDays(i);
-                    HashMap<String, Float> monthlyData = emissionsData.get(currentDay);
-                    if (monthlyData != null) {
-                        for (String category : categoryTotals.keySet()) {
-                            Float value = monthlyData.getOrDefault(category, 0f);
-                            categoryTotals.put(category, categoryTotals.get(category) + value);
-                        }
-                    }
-                }
-                break;
-
-            case 3: // Yearly: Consider the categories from the start of the year to today (yearly)
-                for (LocalDate date : emissionsData.keySet()) {
-                    if (date.getYear() == selectedDate.getYear()) {
-                        HashMap<String, Float> yearlyData = emissionsData.get(date);
-                        if (yearlyData != null) {
-                            for (String category : categoryTotals.keySet()) {
-                                Float value = yearlyData.getOrDefault(category, 0f);
-                                categoryTotals.put(category, categoryTotals.get(category) + value);
-                            }
-                        }
-                    }
-                }
-                break;
-
-            default:
-                throw new IllegalArgumentException("Invalid time period selection");
+        if (dayData != null) {
+            for (String category : categoryTotals.keySet()) {
+                Float value = dayData.getOrDefault(category, 0f);
+                categoryTotals.put(category, categoryTotals.get(category) + value);
+            }
         }
 
         return categoryTotals;
     }
 
+    /**
+     * Processes the categorical data for the weekly time period (1).
+     * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
+     * @param selectedDate The reference date (e.g., today).
+     * @param context The context for accessing resources.
+     * @return A HashMap of category totals.
+     */
+    public static HashMap<String, Float> getWeeklyCategoricalData(
+            HashMap<LocalDate, HashMap<String, Float>> emissionsData,
+            LocalDate selectedDate,
+            Context context) {
 
+        HashMap<String, Float> categoryTotals = initializeCategoryTotals(context);
+        LocalDate startOfWeek = selectedDate.minusDays(selectedDate.getDayOfWeek().getValue() % 7); // Last Sunday
 
+        for (int i = 0; i <= selectedDate.getDayOfWeek().getValue(); i++) {
+            LocalDate currentDay = startOfWeek.plusDays(i);
+            HashMap<String, Float> weeklyData = emissionsData.get(currentDay);
+            if (weeklyData != null) {
+                for (String category : categoryTotals.keySet()) {
+                    Float value = weeklyData.getOrDefault(category, 0f);
+                    categoryTotals.put(category, categoryTotals.get(category) + value);
+                }
+            }
+        }
 
-
+        return categoryTotals;
+    }
 
     /**
-     * Processes bar chart data based on the time period.
+     * Processes the categorical data for the monthly time period (2).
      * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
-     * @param timePeriod The time period: 0 (Weekly), 1 (Monthly), 2 (Yearly).
+     * @param selectedDate The reference date (e.g., today).
+     * @param context The context for accessing resources.
+     * @return A HashMap of category totals.
+     */
+    public static HashMap<String, Float> getMonthlyCategoricalData(
+            HashMap<LocalDate, HashMap<String, Float>> emissionsData,
+            LocalDate selectedDate,
+            Context context) {
+
+        HashMap<String, Float> categoryTotals = initializeCategoryTotals(context);
+        LocalDate startOfMonth = selectedDate.withDayOfMonth(1);
+        int daysInMonth = selectedDate.getDayOfMonth();
+
+        for (int i = 0; i < daysInMonth; i++) {
+            LocalDate currentDay = startOfMonth.plusDays(i);
+            HashMap<String, Float> monthlyData = emissionsData.get(currentDay);
+            if (monthlyData != null) {
+                for (String category : categoryTotals.keySet()) {
+                    Float value = monthlyData.getOrDefault(category, 0f);
+                    categoryTotals.put(category, categoryTotals.get(category) + value);
+                }
+            }
+        }
+
+        return categoryTotals;
+    }
+
+    /**
+     * Processes the categorical data for the yearly time period (3).
+     * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
+     * @param selectedDate The reference date (e.g., today).
+     * @param context The context for accessing resources.
+     * @return A HashMap of category totals.
+     */
+    public static HashMap<String, Float> getYearlyCategoricalData(
+            HashMap<LocalDate, HashMap<String, Float>> emissionsData,
+            LocalDate selectedDate,
+            Context context) {
+
+        HashMap<String, Float> categoryTotals = initializeCategoryTotals(context);
+
+        for (Map.Entry<LocalDate, HashMap<String, Float>> entry : emissionsData.entrySet()) {
+            LocalDate date = entry.getKey();
+            if (date.getYear() == selectedDate.getYear()) {
+                HashMap<String, Float> yearlyData = entry.getValue();
+                if (yearlyData != null) {
+                    for (String category : categoryTotals.keySet()) {
+                        Float value = yearlyData.getOrDefault(category, 0f);
+                        categoryTotals.put(category, categoryTotals.get(category) + value);
+                    }
+                }
+            }
+        }
+
+        return categoryTotals;
+    }
+
+    /**
+     * Initializes the category totals with 0 values.
+     * @param context The context for accessing resources.
+     * @return A HashMap of categories with initial values set to 0.
+     */
+    private static HashMap<String, Float> initializeCategoryTotals(Context context) {
+        HashMap<String, Float> categoryTotals = new HashMap<>();
+        String[] categories = context.getResources().getStringArray(R.array.Categories);
+        for (String category : categories) {
+            categoryTotals.put(category, 0f);
+        }
+        return categoryTotals;
+    }
+
+    /**
+     * Processes the bar chart data for the weekly time period (1).
+     * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
      * @param selectedDate The reference date (e.g., today).
      * @return An ArrayList<Float> of emissions totals for the period.
      */
-    public static ArrayList<Float> getPeriodicalChartData(
+    public static ArrayList<Float> getWeeklyChartData(
             HashMap<LocalDate, HashMap<String, Float>> emissionsData,
-            int timePeriod,
             LocalDate selectedDate) {
 
         ArrayList<Float> barChartData = new ArrayList<>();
+        LocalDate startOfWeek = selectedDate.minusDays(selectedDate.getDayOfWeek().getValue() % 7); // Last Sunday
+        int daysToInclude = selectedDate.getDayOfWeek().getValue(); // Number of days from Sunday to today
 
-        switch (timePeriod) {
-            case 1: // Weekly: From Sunday to today
-                LocalDate startOfWeek = selectedDate.minusDays(selectedDate.getDayOfWeek().getValue() % 7); // Last Sunday
-                int daysToInclude = selectedDate.getDayOfWeek().getValue(); // Number of days from Sunday to today
-                for (int i = 0; i <= daysToInclude; i++) { // Iterate up to the current day
-                    LocalDate currentDay = startOfWeek.plusDays(i);
-                    float dailyTotal = 0f;
+        for (int i = 0; i <= daysToInclude; i++) {
+            LocalDate currentDay = startOfWeek.plusDays(i);
+            float dailyTotal = 0f;
 
-                    // Add emissions if data exists; otherwise, default to 0
-                    HashMap<String, Float> dayData = emissionsData.get(currentDay);
+            HashMap<String, Float> dayData = emissionsData.get(currentDay);
+            if (dayData != null) {
+                dailyTotal = dayData.values().stream().reduce(0f, Float::sum);
+            }
+
+            barChartData.add(dailyTotal);
+        }
+
+        return barChartData;
+    }
+
+    /**
+     * Processes the bar chart data for the monthly time period (2).
+     * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
+     * @param selectedDate The reference date (e.g., today).
+     * @return An ArrayList<Float> of emissions totals for the period.
+     */
+    public static ArrayList<Float> getMonthlyChartData(
+            HashMap<LocalDate, HashMap<String, Float>> emissionsData,
+            LocalDate selectedDate) {
+
+        ArrayList<Float> barChartData = new ArrayList<>();
+        LocalDate startOfMonth = selectedDate.withDayOfMonth(1);
+        int daysInMonth = selectedDate.getDayOfMonth(); // Only consider days up to today
+
+        for (int i = 0; i < daysInMonth; i++) {
+            LocalDate currentDay = startOfMonth.plusDays(i);
+            float dailyTotal = 0f;
+
+            HashMap<String, Float> dayData = emissionsData.get(currentDay);
+            if (dayData != null) {
+                dailyTotal = dayData.values().stream().reduce(0f, Float::sum);
+            }
+
+            barChartData.add(dailyTotal);
+        }
+
+        return barChartData;
+    }
+
+    /**
+     * Processes the bar chart data for the yearly time period (3).
+     * @param emissionsData The emissions data: {LocalDate: {Category: emission value}}
+     * @param selectedDate The reference date (e.g., today).
+     * @return An ArrayList<Float> of emissions totals for the period.
+     */
+    public static ArrayList<Float> getYearlyChartData(
+            HashMap<LocalDate, HashMap<String, Float>> emissionsData,
+            LocalDate selectedDate) {
+
+        ArrayList<Float> barChartData = new ArrayList<>();
+        for (int month = 1; month <= selectedDate.getMonthValue(); month++) {
+            float monthlyTotal = 0f;
+
+            for (Map.Entry<LocalDate, HashMap<String, Float>> entry : emissionsData.entrySet()) {
+                LocalDate date = entry.getKey();
+                if (date.getYear() == selectedDate.getYear() && date.getMonthValue() == month) {
+                    HashMap<String, Float> dayData = entry.getValue();
                     if (dayData != null) {
-                        dailyTotal = dayData.values().stream().reduce(0f, Float::sum);
+                        monthlyTotal += dayData.values().stream().reduce(0f, Float::sum);
                     }
-
-                    barChartData.add(dailyTotal);
                 }
-                break;
+            }
 
-            case 2: // Monthly: From the 1st of the month to today
-                LocalDate startOfMonth = selectedDate.withDayOfMonth(1);
-                int daysInMonth = selectedDate.getDayOfMonth(); // Only consider days up to today
-                for (int i = 0; i < daysInMonth; i++) {
-                    LocalDate currentDay = startOfMonth.plusDays(i);
-                    float dailyTotal = 0f;
-
-                    // Add emissions if data exists; otherwise, default to 0
-                    HashMap<String, Float> dayData = emissionsData.get(currentDay);
-                    if (dayData != null) {
-                        dailyTotal = dayData.values().stream().reduce(0f, Float::sum);
-                    }
-
-                    barChartData.add(dailyTotal);
-                }
-                break;
-
-            case 3: // Yearly: From January to the current month
-                for (int month = 1; month <= selectedDate.getMonthValue(); month++) {
-                    float monthlyTotal = 0f;
-
-                    // Filter relevant dates directly for the current month
-                    for (Map.Entry<LocalDate, HashMap<String, Float>> entry : emissionsData.entrySet()) {
-                        LocalDate date = entry.getKey();
-                        if (date.getYear() == selectedDate.getYear() && date.getMonthValue() == month) {
-                            HashMap<String, Float> dayData = entry.getValue();
-                            if (dayData != null) {
-                                monthlyTotal += dayData.values().stream().reduce(0f, Float::sum);
-                            }
-                        }
-                    }
-
-                    barChartData.add(monthlyTotal);
-                }
-                break;
-
-            default:
-                throw new IllegalArgumentException("Invalid time period selection");
+            barChartData.add(monthlyTotal);
         }
 
         return barChartData;
@@ -198,6 +252,4 @@ public class DataProcessor {
         return lineChartData;
     }
 
-
 }
-
