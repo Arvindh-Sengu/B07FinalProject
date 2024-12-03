@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.ArrayList;
 
@@ -43,8 +46,46 @@ public class LineChartFragment extends Fragment {
         LineChart lineChart = view.findViewById(R.id.lineChartView);
         setupLineChart(lineChart);
 
+        lineChart.getDescription().setEnabled(false);
+
+        // Disable the legend
+        lineChart.getLegend().setEnabled(false);
+
+        // Remove grid lines (both vertical and horizontal)
+        lineChart.getXAxis().setDrawGridLines(false);  // Remove vertical grid lines
+        lineChart.getAxisLeft().setDrawGridLines(false); // Remove horizontal grid lines
+        lineChart.getAxisRight().setDrawGridLines(false); // Remove horizontal grid lines on the right axis
+
+        // Disable the right Y-Axis
+        lineChart.getAxisRight().setEnabled(false);
+
+        // Ensure X-Axis labels appear at the bottom
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        final String[] months = {
+                "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        };
+
+// Custom ValueFormatter for months
+        xAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                // Ensure the value is within bounds of the months array
+                int index = (int) value;
+                if (index >= 0 && index < months.length) {
+                    return months[index];
+                }
+                return ""; // Return empty string for out-of-bounds values
+            }
+        });
+
+
+
         return view;
     }
+
 
     private void setupLineChart(LineChart lineChart) {
         ArrayList<Entry> entries = new ArrayList<>();

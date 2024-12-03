@@ -37,5 +37,11 @@
         <item>Yearly</item>
     </string-array>
 
+   <string-array name="Categories">
+       <item>Shopping</item>
+       <item>Transportation</item>
+       <item>Garbage</item>
+   </string-array>
+
 
 </resources>

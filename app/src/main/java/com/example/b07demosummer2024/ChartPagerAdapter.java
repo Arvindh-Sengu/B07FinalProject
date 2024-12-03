@@ -5,18 +5,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ChartPagerAdapter extends FragmentStateAdapter {
 
-    private ArrayList<Float> data_em_by_categories;
-    private ArrayList<Float> data_em_by_day;
+    private HashMap<String, Float> categoricalData;
+    private ArrayList<Float> PeriodicalData;
+
+    private HashMap<String, Float> barchartStuff;
     private int selectedTimePeriod;
 
-    public ChartPagerAdapter(@NonNull FragmentActivity fragmentActivity, ArrayList<Float> data_em_by_categories, ArrayList<Float> data_em_by_day, int selectedTimePeriod) {
+    private HashMap <LocalDate, HashMap <String, Float>> rawData;
+
+    public ChartPagerAdapter(@NonNull FragmentActivity fragmentActivity, HashMap <LocalDate, HashMap <String, Float>> rawData, int selectedTimePeriod) {
         super(fragmentActivity);
-        this.data_em_by_categories = data_em_by_categories;
-        this.data_em_by_day = data_em_by_day;
+        this.rawData = rawData;
         this.selectedTimePeriod = selectedTimePeriod;
     }
 
@@ -24,12 +29,20 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (selectedTimePeriod == 0){
-            return PieChartFragment.newInstance(data_em_by_categories);
+
+
+
+            return PieChartFragment.newInstance(categoricalData);
         }
 
         switch (position) {
             case 0:
-                return BarChartFragment.newInstance(data_em_by_day);
+                HashMap<String, Float> dummyData = new HashMap<>();
+                dummyData.put("Transport", 5.0f);
+                dummyData.put("Electricity", 7.5f);
+                dummyData.put("Heating", 3.2f);
+                dummyData.put("Waste", 4.0f);
+                return BarChartFragment.newInstance(dummyData);
             case 1:
                 return PieChartFragment.newInstance(data_em_by_categories);
             case 2:
