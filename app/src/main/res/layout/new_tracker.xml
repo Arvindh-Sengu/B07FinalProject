@@ -321,6 +321,15 @@
             android:textColor="@color/P_Blue"
             android:layout_below="@id/top_view"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/P_White"
+            android:text="Add Entry"
+            android:textColor="@color/P_Blue"
+            android:textStyle="bold"
+            android:onClick="addEntryClicked"
+            />
 
     </LinearLayout>
 
@@ -368,7 +377,8 @@
         android:layout_marginLeft="10dp"
         android:src="@drawable/bluebackarrow_foreground"
         android:background="@drawable/circle_btn"
-        android:padding="150dp">
+        android:padding="150dp"
+        android:onClick="onBackClicked">
 
     </ImageButton>
 

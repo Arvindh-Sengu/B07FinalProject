@@ -1,261 +1,358 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@color/P_Grey">
 
-    <!-- Transportation Activities -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Transportation Activities"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/P_Black"
-        android:paddingBottom="8dp" />
-
-    <!-- Drive Personal Vehicle -->
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Transportation Activities -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Distance Driven (km):"
+            android:text="Transportation Activities"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/P_Black"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/distanceDriven"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="numberDecimal"
-            android:textColor="@color/P_Black"
-            android:hint="Enter km" />
-    </LinearLayout>
+            android:paddingBottom="4dp" />
 
-    <!-- Take Public Transportation -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
+        <!-- Drive Personal Vehicle -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance Driven (km):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/distanceDriven"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter km"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Take Public Transportation -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time Spent on Public Transport (hours):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/publicTransportTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter hours"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Cycling or Walking -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance Cycled/Walked (km):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/distanceCycled"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter km"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Flight -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of Flights:"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/numOfFlights"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter number of flights"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Food Consumption Activities -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Food Consumption Activities"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/P_Black"
-            android:text="Time Spent on Public Transport (hours):"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/publicTransportTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/P_Black"
-            android:inputType="numberDecimal"
-            android:hint="Enter hours" />
-    </LinearLayout>
+            android:paddingBottom="4dp" />
 
-    <!-- Cycling or Walking -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
+        <!-- Chicken -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chicken (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/chickenServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Beef -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beef (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/beefServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Vegetarian -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetarian (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/vegetarianServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Seafood -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seafood (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/seafoodServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Pork -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pork (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/porkServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Consumption and Shopping Activities -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Consumption and Shopping Activities"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/P_Black"
-            android:text="Distance Cycled/Walked (km):"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/distanceCycled"
-            android:layout_width="0dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Buy New Clothes -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/P_Black"
-            android:inputType="numberDecimal"
-            android:hint="Enter km" />
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Spent on Clothes ($):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/clothesSpent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Buy New Electronics -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Spent on Electronics ($):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/electronicsSpent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Spent on Bills ($):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/billsSpent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Back"
+                android:textSize="14sp"
+                android:onClick="onBackClicked" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add Entry"
+                android:textSize="14sp"
+                android:onClick="onSubmitClicked" />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <!-- Flight -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Number of Flights:"
-            android:textColor="@color/P_Black"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/numOfFlights"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/P_Black"
-            android:inputType="number"
-            android:hint="Enter number of flights" />
-    </LinearLayout>
-
-    <!-- Food Consumption Activities -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Food Consumption Activities"
-        android:textSize="18sp"
-        android:textColor="@color/P_Black"
-        android:textStyle="bold"
-        android:paddingBottom="8dp" />
-
-    <!-- Meal Type -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type of Meal:"
-            android:textColor="@color/P_Black"
-            android:layout_marginEnd="8dp"/>
-        <Spinner
-            android:id="@+id/mealTypeSpinner"
-            android:layout_width="0dp"
-            android:textColor="@color/P_Black"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/meal_types" />
-    </LinearLayout>
-
-    <!-- Number of Servings -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/P_Black"
-            android:text="Number of Servings:"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/numOfServings"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/P_Black"
-            android:inputType="number"
-            android:hint="Enter servings" />
-    </LinearLayout>
-
-    <!-- Consumption and Shopping Activities -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consumption and Shopping Activities"
-        android:textSize="18sp"
-        android:textColor="@color/P_Black"
-        android:textStyle="bold"
-        android:paddingBottom="8dp" />
-
-    <!-- Buy New Clothes -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/P_Black"
-            android:text="Number of Clothes Purchased:"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/clothingPurchased"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/P_Black"
-            android:inputType="number"
-            android:hint="Enter number of clothes" />
-    </LinearLayout>
-
-    <!-- Buy Electronics -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/P_Black"
-            android:text="Number of Electronics Purchased:"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/electronicsPurchased"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/P_Black"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:hint="Enter number of electronics" />
-    </LinearLayout>
-
-    <!-- Bill Amount -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/P_Black"
-            android:text="Bill Amount ($):"
-            android:layout_marginEnd="8dp"/>
-        <EditText
-            android:id="@+id/billAmount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/P_Black"
-            android:inputType="numberDecimal"
-            android:hint="Enter bill amount" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:gravity="center_horizontal">
-
-        <!-- Back Button -->
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Back"
-            android:onClick="onBackClicked" />
-
-        <!-- Add Entry Button -->
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add Entry"
-            android:onClick="onSubmitClicked" />
-    </LinearLayout>
-</LinearLayout>
-
+</ScrollView>
