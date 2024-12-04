@@ -1,6 +1,6 @@
 package com.example.B07Planetze;
 
-import com.example.B07Planetze.Date;
+import java.util.ArrayList;
 
 /**
  * Represents a user in the system.
@@ -29,7 +29,8 @@ public class User {
         this.calendar = new ArrayList<>();
     }
 
-    // Getters and setters for each field with JavaDoc
+    // Getters and Setters
+
     /**
      * Gets the full name of the user.
      *
@@ -39,5 +40,103 @@ public class User {
         return fullName;
     }
 
-    // Add similar JavaDocs for other getters and setters...
+    /**
+     * Sets the full name of the user.
+     *
+     * @param fullName Full name to set
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    /**
+     * Gets the unique identifier of the user.
+     *
+     * @return User ID
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * Sets the unique identifier of the user.
+     *
+     * @param userId User ID to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * Gets the password of the user.
+     *
+     * @return User's password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets the password of the user.
+     *
+     * @param password Password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Gets the email address of the user.
+     *
+     * @return User's email address
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Sets the email address of the user.
+     *
+     * @param email Email address to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Gets the calendar of activities for the user.
+     *
+     * @return Calendar of activities
+     */
+    public ArrayList<Date> getCalendar() {
+        return calendar;
+    }
+
+    /**
+     * Sets the calendar of activities for the user.
+     *
+     * @param calendar Calendar of activities to set
+     */
+    public void setCalendar(ArrayList<Date> calendar) {
+        this.calendar = calendar;
+    }
+
+    /**
+     * Adds a Date to the user's calendar.
+     *
+     * @param date Date to add
+     */
+    public void addToCalendar(Date date) {
+        this.calendar.add(date);
+    }
+
+    /**
+     * Removes a Date from the user's calendar.
+     *
+     * @param date Date to remove
+     * @return True if the date was removed, false otherwise
+     */
+    public boolean removeFromCalendar(Date date) {
+        return this.calendar.remove(date);
+    }
 }
