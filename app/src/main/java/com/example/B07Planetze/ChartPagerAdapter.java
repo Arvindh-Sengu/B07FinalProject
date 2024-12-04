@@ -11,6 +11,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import com.B07Planetze.R;
+
 
 public class ChartPagerAdapter extends FragmentStateAdapter {
 

@@ -71,42 +71,38 @@
                     android:layout_marginTop="0dp">
 
                     <TextView
+                        android:id="@+id/drivenTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Distance Driven: 30km "
+                        android:text="Distance Driven: 0km"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/transportTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Public transport time: 1h"
+                        android:text="Public transport time: 0h"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/cycledTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Distance cycled/walked: "
+                        android:text="Distance cycled/walked: 0km"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/flightsTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Flights taken (Short): "
-                        android:textSize="15sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/P_Black"
-                        android:text="Flights taken (Long): "
+                        android:text="Flights taken: 0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
@@ -164,42 +160,47 @@
                     android:layout_marginTop="0dp">
 
                     <TextView
+                        android:id="@+id/chickenTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Chicken meals: "
+                        android:text="Chicken meals: 0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/beefTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Beef meals: "
+                        android:text="Beef meals: 0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/porkTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Pork meals: "
+                        android:text="Pork meals: 0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/fishTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Fish meals: "
+                        android:text="Fish meals: 0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/vegTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Plant-based meals: "
+                        android:text="Plant-based meals: 0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
@@ -257,34 +258,29 @@
                     android:layout_marginTop="0dp">
 
                     <TextView
+                        android:id="@+id/clothesTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Clothes: "
+                        android:text="Clothes: $0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/electronicsTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Electronics: "
+                        android:text="Electronics: $0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
                     <TextView
+                        android:id="@+id/billsTxt"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/P_Black"
-                        android:text="Other purchases: "
-                        android:textSize="15sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/P_Black"
-                        android:text="Bills: "
+                        android:text="Bills: $0"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
 
