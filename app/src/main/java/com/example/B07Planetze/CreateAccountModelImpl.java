@@ -1,7 +1,6 @@
 package com.example.B07Planetze;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateAccountModelImpl implements CreateAccountModel {

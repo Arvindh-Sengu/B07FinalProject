@@ -1,7 +1,6 @@
 package com.example.B07Planetze;
 
 
-import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class ViewPagerListener extends ViewPager2.OnPageChangeCallback {

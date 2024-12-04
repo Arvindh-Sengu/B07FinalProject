@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import com.B07Planetze.R;
 
+
 public class ChartPagerAdapter extends FragmentStateAdapter {
 
     private final Context context; // Context for categorical data

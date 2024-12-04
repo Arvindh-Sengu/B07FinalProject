@@ -24,6 +24,23 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+
+
 public class EcoGaugeActivity extends AppCompatActivity {
 
     private InfoCardFragment infoCardFragment;
