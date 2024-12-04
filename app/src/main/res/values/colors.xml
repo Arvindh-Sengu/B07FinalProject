@@ -8,4 +8,7 @@
     <color name="slate">#373f51</color>
     <color name="off_black">#1b1b1e</color>
     <color name="transparent">#00000000</color>
+    <color name="moonstone">#55ABB5</color>
+    <color name="gunmetal">#292d38</color>
+    <color name="another_gray">#467583</color>
 </resources>

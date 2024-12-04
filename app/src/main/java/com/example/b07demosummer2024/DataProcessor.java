@@ -49,7 +49,7 @@ public class DataProcessor {
         HashMap<String, Float> categoryTotals = initializeCategoryTotals(context);
         LocalDate startOfWeek = selectedDate.minusDays(selectedDate.getDayOfWeek().getValue() % 7); // Last Sunday
 
-        for (int i = 0; i <= selectedDate.getDayOfWeek().getValue(); i++) {
+        for (int i = 0; i < selectedDate.getDayOfWeek().getValue(); i++) {
             LocalDate currentDay = startOfWeek.plusDays(i);
             HashMap<String, Float> weeklyData = emissionsData.get(currentDay);
             if (weeklyData != null) {
@@ -151,7 +151,7 @@ public class DataProcessor {
         LocalDate startOfWeek = selectedDate.minusDays(selectedDate.getDayOfWeek().getValue() % 7); // Last Sunday
         int daysToInclude = selectedDate.getDayOfWeek().getValue(); // Number of days from Sunday to today
 
-        for (int i = 0; i <= daysToInclude; i++) {
+        for (int i = 0; i < daysToInclude; i++) {
             LocalDate currentDay = startOfWeek.plusDays(i);
             float dailyTotal = 0f;
 

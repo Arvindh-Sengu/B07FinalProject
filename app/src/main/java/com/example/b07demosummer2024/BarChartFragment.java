@@ -1,8 +1,11 @@
 package com.example.b07demosummer2024;
 
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -60,21 +64,37 @@ public class BarChartFragment extends Fragment {
         }
 
         BarDataSet dataSet = new BarDataSet(entries, "Emissions Data");
-        dataSet.setColors(com.github.mikephil.charting.utils.ColorTemplate.COLORFUL_COLORS); // Customize bar colors
+
+        int color1 = ContextCompat.getColor(requireContext(), R.color.aquamarine);
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add(ContextCompat.getColor(requireContext(), R.color.moonstone));
+        colors.add(ContextCompat.getColor(requireContext(), R.color.gunmetal));
+
+        dataSet.setColors(colors); // Customize bar colors
 
         BarData data = new BarData(dataSet);
         barChart.setData(data);
+        dataSet.setDrawValues(false);
 
         XAxis xAxis = barChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(getXAxisLabels()));
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
+        xAxis.setTextColor(color1);
+
+
+
+        YAxis yAxisLeft = barChart.getAxisLeft();
+        yAxisLeft.setTextColor(color1); // Set the color of the Y-axis labels
+
+
 
         barChart.getLegend().setEnabled(false);
         barChart.getDescription().setEnabled(false);
         barChart.getAxisRight().setEnabled(false);
         barChart.getAxisLeft().setDrawGridLines(false);
         barChart.getXAxis().setDrawGridLines(false);
+
 
         barChart.invalidate(); // Refresh the chart
     }

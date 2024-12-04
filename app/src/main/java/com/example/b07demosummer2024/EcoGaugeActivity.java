@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -19,7 +21,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 
-public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragment.DataListener {
+public class EcoGaugeActivity extends AppCompatActivity {
 
     private InfoCardFragment infoCardFragment;
     private ViewPager2 viewPager;
@@ -44,6 +46,9 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eco_gauge);
+
+        TextView timePeriodTextView = findViewById(R.id.timePeriodTextView);
+
 
         // Set up the spinner
         Spinner timePeriodSpinner = findViewById(R.id.time_period_spinner);
@@ -96,6 +101,50 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
                 chartPagerAdapter = new ChartPagerAdapter(EcoGaugeActivity.this, emissionsData, position, currentDate);
                 viewPager.setAdapter(chartPagerAdapter);
                 chartPagerAdapter.notifyDataSetChanged();
+                LinearLayout dotsContainer = findViewById(R.id.viewPagerIndicatorIconsLayout);
+                switch (position) {
+                    case 0: // daily case:
+                        dotsContainer.setVisibility(View.GONE);
+                        timePeriodTextView.setText("Your emissions Today");
+
+                        infoCardFragment = InfoCardFragment.newInstance(DataProcessor.getDailyCategoricalData(emissionsData, currentDate, EcoGaugeActivity.this));
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.infoCardContainer, infoCardFragment)
+                                .commit();
+                        break;
+
+                    case 1: //weekly
+                        dotsContainer.setVisibility(View.VISIBLE);
+                        timePeriodTextView.setText("Your emissions this Week");
+
+                        infoCardFragment = InfoCardFragment.newInstance(DataProcessor.getWeeklyCategoricalData(emissionsData, currentDate, EcoGaugeActivity.this));
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.infoCardContainer, infoCardFragment)
+                                .commit();
+                        break;
+
+                    case 2: //monthly
+                        dotsContainer.setVisibility(View.VISIBLE);
+                        timePeriodTextView.setText("Your emissions this Month");
+
+                        infoCardFragment = InfoCardFragment.newInstance(DataProcessor.getMonthlyCategoricalData(emissionsData, currentDate, EcoGaugeActivity.this));
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.infoCardContainer, infoCardFragment)
+                                .commit();
+
+                        break;
+
+                    case 3: //yearly
+                        dotsContainer.setVisibility(View.VISIBLE);
+                        timePeriodTextView.setText("Your emissions this Year");
+
+                        infoCardFragment = InfoCardFragment.newInstance(DataProcessor.getYearlyCategoricalData(emissionsData, currentDate, EcoGaugeActivity.this));
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.infoCardContainer, infoCardFragment)
+                                .commit();
+                        break;
+
+                }
 
             }
 
@@ -109,7 +158,7 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
 
         //infocard frag:
         // Initialize InfoCardFragment
-        infoCardFragment = InfoCardFragment.newInstance(new HashMap<>());
+        infoCardFragment = InfoCardFragment.newInstance(DataProcessor.getDailyCategoricalData(emissionsData, currentDate, this));
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.infoCardContainer, infoCardFragment)
                 .commit();
@@ -117,12 +166,7 @@ public class EcoGaugeActivity extends AppCompatActivity implements BarChartFragm
 
     }
 
-    @Override
-    public void onDataSelected(HashMap<String, Float> emissionData) {
-        if (infoCardFragment != null && emissionData != null) {
-            infoCardFragment.populateTable(emissionData);
-        }
-    }
+
 
 
     private void updateDots(int position) {

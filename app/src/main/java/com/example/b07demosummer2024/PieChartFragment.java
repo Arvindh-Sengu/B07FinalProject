@@ -65,10 +65,11 @@ public class PieChartFragment extends Fragment {
         // Assign PieData to PieChart
         PieData pieData = new PieData(dataSet);
         pieChart.setData(pieData);
+        dataSet.setDrawValues(false);
 
         // Customize PieChart appearance
         pieChart.getDescription().setEnabled(false);
-        pieChart.setDrawEntryLabels(true);
+        pieChart.setDrawEntryLabels(false);
         pieChart.setUsePercentValues(true);
         pieChart.setHoleRadius(40f);
         pieChart.setTransparentCircleRadius(45f);

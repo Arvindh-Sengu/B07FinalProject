@@ -50,7 +50,7 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
 
                     case 2: // Line Chart
                         ArrayList<Float> weeklyLineChartData = DataProcessor.getWeeklyChartData(rawData, selectedDate);
-                        return LineChartFragment.newInstance(weeklyLineChartData);
+                        return LineChartFragment.newInstance(weeklyLineChartData, 1);
 
                     default:
                         throw new IllegalArgumentException("Invalid chart position");
@@ -60,7 +60,7 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
                 switch (position) {
                     case 0: // Bar Chart
                         ArrayList<Float> monthlyBarChartData = DataProcessor.getMonthlyChartData(rawData, selectedDate);
-                        return BarChartFragment.newInstance(monthlyBarChartData, 1);
+                        return BarChartFragment.newInstance(monthlyBarChartData, 2);
 
                     case 1: // Pie Chart
                         HashMap<String, Float> monthlyPieChartData = DataProcessor.getMonthlyCategoricalData(rawData, selectedDate, context);
@@ -68,7 +68,7 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
 
                     case 2: // Line Chart
                         ArrayList<Float> monthlyLineChartData = DataProcessor.getMonthlyChartData(rawData, selectedDate);
-                        return LineChartFragment.newInstance(monthlyLineChartData);
+                        return LineChartFragment.newInstance(monthlyLineChartData, 2);
 
                     default:
                         throw new IllegalArgumentException("Invalid chart position");
@@ -78,7 +78,7 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
                 switch (position) {
                     case 0: // Bar Chart
                         ArrayList<Float> yearlyBarChartData = DataProcessor.getYearlyChartData(rawData, selectedDate);
-                        return BarChartFragment.newInstance(yearlyBarChartData, 1);
+                        return BarChartFragment.newInstance(yearlyBarChartData, 3);
 
                     case 1: // Pie Chart
                         HashMap<String, Float> yearlyPieChartData = DataProcessor.getYearlyCategoricalData(rawData, selectedDate, context);
@@ -86,7 +86,7 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
 
                     case 2: // Line Chart
                         ArrayList<Float> yearlyLineChartData = DataProcessor.getLineChartYearlyData(rawData, selectedDate);
-                        return LineChartFragment.newInstance(yearlyLineChartData);
+                        return LineChartFragment.newInstance(yearlyLineChartData, 3);
 
                     default:
                         throw new IllegalArgumentException("Invalid chart position");
@@ -95,6 +95,7 @@ public class ChartPagerAdapter extends FragmentStateAdapter {
             default:
                 throw new IllegalArgumentException("Invalid time period");
         }
+
 
     }
 
