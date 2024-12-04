@@ -66,4 +66,5 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("org.threeten:threetenbp:1.5.1")
 }

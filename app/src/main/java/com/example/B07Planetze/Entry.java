@@ -1,256 +1,107 @@
 package com.example.B07Planetze;
 
-import java.util.HashMap;
-
-/**
- * Represents an individual activity entry for tracking daily carbon footprint.
- * Each entry includes specific activity data (e.g., transportation, meals, shopping)
- * and calculates the associated CO2e emissions.
- */
 public class Entry {
-    // Fields
-    /**
-     * The type of activity (e.g., "Drive Personal Vehicle", "Meal", "Buy Electronics").
-     */
-    private String activityType;
-
-    /**
-     * Total CO2e emissions for the entry.
-     */
-    private float totalCO2e;
-
-    /**
-     * CO2e emissions from transportation-related activities.
-     */
-    private float transportationEmissions;
-
-    /**
-     * CO2e emissions from meals.
-     */
-    private float mealEmissions;
-
-    /**
-     * CO2e emissions from shopping-related activities.
-     */
-    private float shoppingEmissions;
-
-    // Activity-specific fields
-    /**
-     * Distance driven in kilometers for transportation activities.
-     */
+    // Fields for transportation, food, and shopping activities...
     private float distanceDriven;
-
-    /**
-     * A map tracking distances traveled via public transit (bus, train, subway).
-     */
-    private HashMap<String, Float> transitDistances;
-
-    /**
-     * Distance traveled by cycling or walking in kilometers.
-     */
+    private float timeSpentOnPublicTransport;
     private float distanceCycledOrWalked;
+    private int numberOfFlights;
 
-    /**
-     * A map tracking the number of short-haul and long-haul flights taken.
-     */
-    private HashMap<String, Integer> flightCounts;
+    private int chickenServings;
+    private int beefServings;
+    private int vegetarianServings;
+    private int seafoodServings;
+    private int porkServings;
 
-    /**
-     * A map tracking servings of different meal types (e.g., beef, pork, chicken, plant-based).
-     */
-    private HashMap<String, Integer> foodServings;
+    private float amountSpentOnClothes;
+    private float amountSpentOnElectronics;
+    private float amountSpentOnBills;
 
-    /**
-     * Number of clothing items purchased.
-     */
-    private int numberOfClothingBought;
+    // Constants for emission factors (approximations)
+    private static final float CO2_PER_KM_DRIVEN = 0.233f; // kg CO2 per km for personal vehicles
+    private static final float CO2_PER_KM_PUBLIC_TRANSPORT = 0.105f; // kg CO2 per km for public transport
+    private static final float CO2_PER_KM_FLIGHT = 0.09f; // kg CO2 per km for flights
+    private static final float CO2_PER_KM_CYCLE_WALK = 0.0f; // No emissions for cycling or walking
 
-    /**
-     * A map tracking the number of electronics purchased (e.g., smartphone, laptop, TV).
-     */
-    private HashMap<String, Integer> electronicsPurchased;
-
-    /**
-     * A map tracking other types of purchases (e.g., furniture, appliances).
-     */
-    private HashMap<String, Integer> otherPurchases;
-
-    /**
-     * A map tracking energy bills (electricity, gas, water) in dollars.
-     */
-    private HashMap<String, Float> energyBills;
-
-    // Constructor
-    /**
-     * Constructs a new Entry object for a given activity type, initializing all fields with default values.
-     *
-     * @param activityType The type of activity this entry represents.
-     */
-    public Entry(String activityType) {
-        this.activityType = activityType;
-
-        this.transitDistances = new HashMap<>();
-        this.transitDistances.put("bus", 0f);
-        this.transitDistances.put("train", 0f);
-        this.transitDistances.put("subway", 0f);
-
-        this.flightCounts = new HashMap<>();
-        this.flightCounts.put("short-haul", 0);
-        this.flightCounts.put("long-haul", 0);
-
-        this.foodServings = new HashMap<>();
-        this.foodServings.put("beef", 0);
-        this.foodServings.put("pork", 0);
-        this.foodServings.put("chicken", 0);
-        this.foodServings.put("fish", 0);
-        this.foodServings.put("plant-based", 0);
-
-        this.electronicsPurchased = new HashMap<>();
-        this.electronicsPurchased.put("smartphone", 0);
-        this.electronicsPurchased.put("laptop", 0);
-        this.electronicsPurchased.put("tv", 0);
-        this.electronicsPurchased.put("tablet", 0);
-        this.electronicsPurchased.put("other", 0);
-
-        this.otherPurchases = new HashMap<>();
-        this.otherPurchases.put("furniture", 0);
-        this.otherPurchases.put("appliances", 0);
-        this.otherPurchases.put("miscellaneous", 0);
-
-        this.energyBills = new HashMap<>();
-        this.energyBills.put("electricity", 0f);
-        this.energyBills.put("gas", 0f);
-        this.energyBills.put("water", 0f);
+    public Entry(float distanceDriven, float timeSpentOnPublicTransport, float distanceCycledOrWalked, int numberOfFlights, int chickenServings, int beefServings, int porkServings, int seafoodServings, int vegetarianServings, float amountSpentOnBills, float amountSpentOnClothes, float amountSpentOnElectronics) {
+        this.distanceDriven = distanceDriven;
+        this.timeSpentOnPublicTransport = timeSpentOnPublicTransport;
+        this.distanceCycledOrWalked = distanceCycledOrWalked;
+        this.numberOfFlights = numberOfFlights;
+        this.chickenServings = chickenServings;
+        this.beefServings = beefServings;
+        this.seafoodServings = seafoodServings;
+        this.vegetarianServings = vegetarianServings;
+        this.porkServings = porkServings;
+        this.amountSpentOnBills = amountSpentOnBills;
+        this.amountSpentOnClothes = amountSpentOnClothes;
+        this.amountSpentOnElectronics = amountSpentOnElectronics;
     }
 
-    // Methods
+    // Methods for calculating CO2 emissions
+    public float calculateTransportationCO2() {
+        float transportationCO2 = 0f;
 
-    /**
-     * Calculates CO2e emissions for transportation activities.
-     * Includes emissions from driving, public transit, and flights.
-     */
-    public void calculateTransportationEmissions() {
-        float vehicleEmissionFactor = 0.2f; // CO2e per km driven
-        float busEmissionFactor = 0.1f; // CO2e per km
-        float trainEmissionFactor = 0.05f; // CO2e per km
-        float subwayEmissionFactor = 0.04f; // CO2e per km
+        // Calculate emissions for distance driven
+        transportationCO2 += distanceDriven * CO2_PER_KM_DRIVEN;
 
-        transportationEmissions = 0;
-        transportationEmissions += distanceDriven * vehicleEmissionFactor;
-        transportationEmissions += transitDistances.get("bus") * busEmissionFactor;
-        transportationEmissions += transitDistances.get("train") * trainEmissionFactor;
-        transportationEmissions += transitDistances.get("subway") * subwayEmissionFactor;
+        // Calculate emissions for time spent on public transport
+        // (Assume timeSpentOnPublicTransport corresponds to distance traveled)
+        transportationCO2 += timeSpentOnPublicTransport * CO2_PER_KM_PUBLIC_TRANSPORT;
 
-        float shortHaulEmissionFactor = 0.15f; // CO2e per short-haul flight
-        float longHaulEmissionFactor = 0.25f; // CO2e per long-haul flight
+        // Calculate emissions for flights
+        transportationCO2 += numberOfFlights * CO2_PER_KM_FLIGHT;
 
-        transportationEmissions += flightCounts.get("short-haul") * shortHaulEmissionFactor;
-        transportationEmissions += flightCounts.get("long-haul") * longHaulEmissionFactor;
+        // No emissions for cycling or walking
+        transportationCO2 += distanceCycledOrWalked * CO2_PER_KM_CYCLE_WALK;
+
+        return transportationCO2;
     }
 
-    /**
-     * Calculates CO2e emissions for meal consumption based on food servings.
-     */
-    public void calculateMealEmissions() {
-        float beefEmissionFactor = 27.0f; // CO2e per serving
-        float porkEmissionFactor = 12.1f; // CO2e per serving
-        float chickenEmissionFactor = 6.9f; // CO2e per serving
-        float fishEmissionFactor = 6.1f; // CO2e per serving
-        float plantBasedEmissionFactor = 2.0f; // CO2e per serving
+    // Methods for calculating food-related CO2 emissions
 
-        mealEmissions = 0;
-        mealEmissions += foodServings.get("beef") * beefEmissionFactor;
-        mealEmissions += foodServings.get("pork") * porkEmissionFactor;
-        mealEmissions += foodServings.get("chicken") * chickenEmissionFactor;
-        mealEmissions += foodServings.get("fish") * fishEmissionFactor;
-        mealEmissions += foodServings.get("plant-based") * plantBasedEmissionFactor;
+    private static final float CO2_PER_SERVING_CHICKEN = 2.5f; // kg CO2 per serving
+    private static final float CO2_PER_SERVING_BEEF = 3.5f; // kg CO2 per serving
+    private static final float CO2_PER_SERVING_VEGETARIAN = 0.5f; // kg CO2 per serving
+    private static final float CO2_PER_SERVING_SEAFOOD = 2.0f; // kg CO2 per serving
+    private static final float CO2_PER_SERVING_PORK = 2.0f; // kg CO2 per serving
+
+    public float calculateFoodCO2() {
+        float foodCO2 = 0f;
+
+        // Calculate emissions for each food type based on servings
+        foodCO2 += chickenServings * CO2_PER_SERVING_CHICKEN;
+        foodCO2 += beefServings * CO2_PER_SERVING_BEEF;
+        foodCO2 += vegetarianServings * CO2_PER_SERVING_VEGETARIAN;
+        foodCO2 += seafoodServings * CO2_PER_SERVING_SEAFOOD;
+        foodCO2 += porkServings * CO2_PER_SERVING_PORK;
+
+        return foodCO2;
     }
 
-    /**
-     * Calculates CO2e emissions for shopping activities.
-     * Includes clothing, electronics, and other purchases.
-     */
-    public void calculateShoppingEmissions() {
-        float clothingEmissionFactor = 5.0f; // CO2e per clothing item
-        float electronicsEmissionFactor = 20.0f; // CO2e per electronic device
-        float otherPurchaseEmissionFactor = 10.0f; // CO2e per other purchase
+    // Methods for calculating shopping-related CO2 emissions
 
-        shoppingEmissions = 0;
-        shoppingEmissions += numberOfClothingBought * clothingEmissionFactor;
+    private static final float CO2_PER_DOLLAR_CLOTHES = 0.04f; // kg CO2 per dollar spent on clothes
+    private static final float CO2_PER_DOLLAR_ELECTRONICS = 0.2f; // kg CO2 per dollar spent on electronics
+    private static final float CO2_PER_DOLLAR_BILLS = 0.15f; // kg CO2 per dollar spent on bills (energy consumption)
 
-        for (String key : electronicsPurchased.keySet()) {
-            shoppingEmissions += electronicsPurchased.get(key) * electronicsEmissionFactor;
-        }
+    public float calculateShoppingCO2() {
+        float shoppingCO2 = 0f;
 
-        for (String key : otherPurchases.keySet()) {
-            shoppingEmissions += otherPurchases.get(key) * otherPurchaseEmissionFactor;
-        }
+        // Calculate emissions based on spending in different categories
+        shoppingCO2 += amountSpentOnClothes * CO2_PER_DOLLAR_CLOTHES;
+        shoppingCO2 += amountSpentOnElectronics * CO2_PER_DOLLAR_ELECTRONICS;
+        shoppingCO2 += amountSpentOnBills * CO2_PER_DOLLAR_BILLS;
+
+        return shoppingCO2;
     }
 
-    /**
-     * Calculates the total CO2e emissions for the entry.
-     * This includes transportation, meal, and shopping emissions.
-     */
-    public void calculateTotalEmissions() {
-        calculateTransportationEmissions();
-        calculateMealEmissions();
-        calculateShoppingEmissions();
-        totalCO2e = transportationEmissions + mealEmissions + shoppingEmissions;
-    }
+    // Method to calculate total carbon footprint for the entry (sum of transportation, food, and shopping)
+    public float calculateTotalCO2() {
+        float transportationCO2 = calculateTransportationCO2();
+        float foodCO2 = calculateFoodCO2();
+        float shoppingCO2 = calculateShoppingCO2();
 
-    // Getters
-
-    /**
-     * Gets the total CO2e emissions for transportation activities.
-     *
-     * @return Transportation CO2e emissions.
-     */
-    public float getTransportationEmissions() {
-        return transportationEmissions;
-    }
-
-    /**
-     * Gets the total CO2e emissions for meals.
-     *
-     * @return Meal CO2e emissions.
-     */
-    public float getMealEmissions() {
-        return mealEmissions;
-    }
-
-    /**
-     * Gets the total CO2e emissions for shopping activities.
-     *
-     * @return Shopping CO2e emissions.
-     */
-    public float getShoppingEmissions() {
-        return shoppingEmissions;
-    }
-
-    /**
-     * Gets the total CO2e emissions for this entry.
-     *
-     * @return Total CO2e emissions.
-     */
-    public float getTotalCO2e() {
-        return totalCO2e;
-    }
-
-    // ToString
-
-    /**
-     * Returns a string representation of the entry for debugging purposes.
-     *
-     * @return A string containing activity type and CO2e emissions.
-     */
-    @Override
-    public String toString() {
-        return "Entry{" +
-                "activityType='" + activityType + '\'' +
-                ", transportationEmissions=" + transportationEmissions +
-                ", mealEmissions=" + mealEmissions +
-                ", shoppingEmissions=" + shoppingEmissions +
-                ", totalCO2e=" + totalCO2e +
-                '}';
+        return transportationCO2 + foodCO2 + shoppingCO2;
     }
 }

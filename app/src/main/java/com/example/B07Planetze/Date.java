@@ -1,7 +1,8 @@
 package com.example.B07Planetze;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.format.DateTimeFormatter;
 
 /**
  * Represents a specific date and the associated user entries for that date.
@@ -9,12 +10,12 @@ import java.util.ArrayList;
  * including adding entries and calculating emissions based on the associated activities.
  */
 public class Date {
-    private LocalDate date; // The date being represented.
-    private ArrayList<Entry> entries; // List of user entries for this date.
+    private ArrayList<Entry> entries; // List of user entries for this date
     private float transportationEmissions; // Total transportation emissions for the date
     private float mealEmissions; // Total meal emissions for the date
     private float shoppingEmissions; // Total shopping emissions for the date
     private float totalEmissions; // Total emissions for the date
+    private String fullDate;
 
     /**
      * Constructs a Date object with a specified LocalDate.
@@ -23,7 +24,8 @@ public class Date {
      * @param date The LocalDate to associate with this object.
      */
     public Date(LocalDate date) {
-        this.date = date;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.fullDate = date.format(formatter);
         this.entries = new ArrayList<>();
         this.transportationEmissions = 0f;
         this.mealEmissions = 0f;
@@ -36,8 +38,8 @@ public class Date {
      *
      * @return The LocalDate of this Date object.
      */
-    public LocalDate getDate() {
-        return date;
+    public String getDate() {
+        return fullDate;
     }
 
     /**
@@ -45,8 +47,8 @@ public class Date {
      *
      * @param date The LocalDate to set for this Date object.
      */
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(String date) {
+        this.fullDate = date;
     }
 
     /**
@@ -65,6 +67,7 @@ public class Date {
      */
     public void setEntries(ArrayList<Entry> entries) {
         this.entries = entries;
+        recalculateEmissions(); // Recalculate emissions after setting new entries
     }
 
     /**
@@ -88,10 +91,10 @@ public class Date {
         totalEmissions = 0f;
 
         for (Entry entry : entries) {
-            entry.calculateTotalEmissions(); // Ensure each entry's emissions are calculated
-            transportationEmissions += entry.getTransportationEmissions();
-            mealEmissions += entry.getMealEmissions();
-            shoppingEmissions += entry.getShoppingEmissions();
+            entry.calculateTotalCO2(); // Ensure each entry's emissions are calculated
+            transportationEmissions += entry.calculateTransportationCO2();
+            mealEmissions += entry.calculateFoodCO2();
+            shoppingEmissions += entry.calculateShoppingCO2();
         }
 
         totalEmissions = transportationEmissions + mealEmissions + shoppingEmissions;
@@ -142,8 +145,9 @@ public class Date {
     @Override
     public String toString() {
         return "Date{" +
-                "date=" + date +
+                "date=" + fullDate +
                 ", entries=" + entries +
+                ", totalEmissions=" + totalEmissions +
                 '}';
     }
 }
