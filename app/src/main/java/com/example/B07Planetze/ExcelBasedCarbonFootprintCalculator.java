@@ -14,7 +14,7 @@ public class ExcelBasedCarbonFootprintCalculator implements CarbonFootprintCalcu
         this.context = context;
         this.answers = answers;
     }
-
+    // Calculates transportation-related carbon emissions.
     @Override
     public double transportationEmissionCalculations() {
         TransportationCarbonFootprintCalculator calculator = new TransportationCarbonFootprintCalculator();
@@ -30,6 +30,7 @@ public class ExcelBasedCarbonFootprintCalculator implements CarbonFootprintCalcu
         );
     }
 
+    // Calculates food-related carbon emissions.
     @Override
     public double foodEmissionCalculations() {
         FoodCarbonFootprintCalculator calculator = new FoodCarbonFootprintCalculator();
@@ -45,6 +46,7 @@ public class ExcelBasedCarbonFootprintCalculator implements CarbonFootprintCalcu
         );
     }
 
+    // Calculates housing-related carbon emissions.
     @Override
     public double housingEmissionCalculations() {
         double housingEmissions = 0;
@@ -67,6 +69,7 @@ public class ExcelBasedCarbonFootprintCalculator implements CarbonFootprintCalcu
         return housingEmissions;
     }
 
+    // Calculates consumption-related carbon emissions.
     @Override
     public double consumptionEmissionCalculations() {
         ConsumptionCarbonFootprintCalculator calculator = new ConsumptionCarbonFootprintCalculator();
