@@ -99,16 +99,7 @@
             android:exported="true"
             android:theme="@style/Theme.B07Planetze" />
 
-        <!-- Other Activities
-        <activity android:name=".ItemAdapter" android:exported="false" />
-        <activity android:name=".Item" android:exported="false" />
-        <activity android:name=".Item2" android:exported="false" />
-        <activity android:name=".SpinnerFragment" android:exported="false" />
-        <activity android:name=".RecyclerViewFragment" android:exported="false" />
-        <activity android:name=".HomeFragment" android:exported="false" />
-        <activity android:name=".Activity2" android:exported="false" />
-
-        -->
+        <!-- Other Activities -->
 
     </application>
 </manifest>

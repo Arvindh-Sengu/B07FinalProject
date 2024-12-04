@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.B07Planetze"
-        minSdk = 26
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -66,6 +66,4 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
-    implementation("com.google.android.material:material:1.9.0")
 }
