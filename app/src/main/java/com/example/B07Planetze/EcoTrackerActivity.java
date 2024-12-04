@@ -3,10 +3,18 @@ package com.example.B07Planetze;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.B07Planetze.R;
+import com.google.firebase.auth.FirebaseAuthException;
+
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class EcoTrackerActivity extends AppCompatActivity {
 
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    FirebaseUser user = auth.getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +25,6 @@ public class EcoTrackerActivity extends AppCompatActivity {
 
     public void onBackClicked(View view) {
         setContentView(R.layout.new_tracker);
-        System.out.println("hi");
     }
 
     public void addEntryClicked(View view) {
@@ -25,7 +32,12 @@ public class EcoTrackerActivity extends AppCompatActivity {
         System.out.println("entry");
     }
 
-    public void onSubmitlicked(View view) {
+    public void onBackClicked2(View view) {
+        finish();
 
+    }
+
+    public void onSubmitClicked(View view) {
+        
     }
 }

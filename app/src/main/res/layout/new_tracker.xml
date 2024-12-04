@@ -378,7 +378,7 @@
         android:src="@drawable/bluebackarrow_foreground"
         android:background="@drawable/circle_btn"
         android:padding="150dp"
-        android:onClick="onBackClicked">
+        android:onClick="onBackClicked2">
 
     </ImageButton>
 
