@@ -14,8 +14,6 @@ import androidx.fragment.app.Fragment;
 
 import com.B07Planetze.R;
 
-import java.util.List;
-
 public class QuestionFragment extends Fragment {
 
     private TextView questionText;

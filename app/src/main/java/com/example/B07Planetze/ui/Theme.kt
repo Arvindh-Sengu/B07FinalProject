@@ -1,4 +1,4 @@
-package com.example.B07Planetze.ui.theme
+package com.example.B07Planetze.ui
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
