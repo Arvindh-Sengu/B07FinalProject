@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.google.firebase.auth)
     testImplementation("org.mockito:mockito-core:4.0.0")
     androidTestImplementation("org.mockito:mockito-android:4.0.0")
     implementation(platform(libs.firebase.bom))

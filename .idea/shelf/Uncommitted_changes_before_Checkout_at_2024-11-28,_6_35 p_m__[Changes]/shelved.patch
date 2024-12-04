@@ -1,0 +1,130 @@
+Index: app/src/main/res/layout/activity_eco_tracker.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:gravity=\"center\">\n\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Eco Tracker\"\n        android:textSize=\"24sp\"\n        android:textStyle=\"bold\" />\n</LinearLayout>\n
+===================================================================
+diff --git a/app/src/main/res/layout/activity_eco_tracker.xml b/app/src/main/res/layout/activity_eco_tracker.xml
+--- a/app/src/main/res/layout/activity_eco_tracker.xml	(revision 0fdf9ec8c6ea20a818aa1bed76e84c50ed9d4b34)
++++ b/app/src/main/res/layout/activity_eco_tracker.xml	(date 1732832103114)
+@@ -1,14 +1,74 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:orientation="vertical"
+-    android:gravity="center">
++    android:background="@drawable/trackerbg">
++
++
++    <TextView
++        android:id="@+id/titleView"
++        android:layout_width="163dp"
++        android:layout_height="55dp"
++        android:layout_marginTop="16dp"
++        android:shadowColor="#7F000000"
++        android:shadowDx="1"
++        android:shadowDy="1"
++        android:shadowRadius="2"
++        android:text="Tracker"
++        android:textColor="#009999"
++        android:textSize="45sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
+ 
+     <TextView
++        android:id="@+id/textView4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Eco Tracker"
+-        android:textSize="24sp"
+-        android:textStyle="bold" />
+-</LinearLayout>
++        android:layout_marginTop="8dp"
++        android:text="As of November 16th 2024"
++        android:textColor="#1b1b1e"
++        android:textSize="14sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.497"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/titleView" />
++
++    <Button
++        android:id="@+id/newEntryBtn"
++        android:layout_width="169dp"
++        android:layout_height="57dp"
++        android:backgroundTint="#009999"
++        android:text="New Entry"
++        tools:layout_editor_absoluteX="118dp"
++
++        tools:layout_editor_absoluteY="109dp" />
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        <GridLayout
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@id/titleView"
++            android:rowCount="3"
++            android:columnCount="2"
++            <androidx.cardview.widget.CardView
++                android:layout_width="409dp"
++                android:layout_height="wrap_content"
++                tools:layout_editor_absoluteX="1dp"
++                tools:layout_editor_absoluteY="318dp"
++                android:layout_gravity="fill"
++                android:layout_rowWeight="1"
++                android:layout_columnWeight="1"
++                android:layout_margin="8dp"
++                app:cardCornerRadius="8dp"
++                app:cardElevation="8dp"
++                />
++
++            />
++    />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"deploymentTargetSelector\">\n    <selectionStates>\n      <SelectionState runConfigName=\"app\">\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\n        <DropdownSelection timestamp=\"2024-11-13T07:30:15.454756500Z\">\n          <Target type=\"DEFAULT_BOOT\">\n            <handle>\n              <DeviceId pluginId=\"LocalEmulator\" identifier=\"path=C:\\Users\\armaa\\.android\\avd\\Pixel_8_Pro_API_34.avd\" />\n            </handle>\n          </Target>\n        </DropdownSelection>\n        <DialogSelection />\n      </SelectionState>\n      <SelectionState runConfigName=\"EcoAgentActivity\">\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\n      </SelectionState>\n    </selectionStates>\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision 0fdf9ec8c6ea20a818aa1bed76e84c50ed9d4b34)
++++ b/.idea/deploymentTargetSelector.xml	(date 1732140804737)
+@@ -4,17 +4,6 @@
+     <selectionStates>
+       <SelectionState runConfigName="app">
+         <option name="selectionMode" value="DROPDOWN" />
+-        <DropdownSelection timestamp="2024-11-13T07:30:15.454756500Z">
+-          <Target type="DEFAULT_BOOT">
+-            <handle>
+-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\armaa\.android\avd\Pixel_8_Pro_API_34.avd" />
+-            </handle>
+-          </Target>
+-        </DropdownSelection>
+-        <DialogSelection />
+-      </SelectionState>
+-      <SelectionState runConfigName="EcoAgentActivity">
+-        <option name="selectionMode" value="DROPDOWN" />
+       </SelectionState>
+     </selectionStates>
+   </component>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"jbr-21\" project-jdk-type=\"JavaSDK\" />\n</project>
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 0fdf9ec8c6ea20a818aa1bed76e84c50ed9d4b34)
++++ b/.idea/misc.xml	(date 1732140210957)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK" />

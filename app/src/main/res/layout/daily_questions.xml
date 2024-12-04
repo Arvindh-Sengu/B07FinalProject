@@ -1,0 +1,358 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/P_Grey">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Transportation Activities -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transportation Activities"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/P_Black"
+            android:paddingBottom="4dp" />
+
+        <!-- Drive Personal Vehicle -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance Driven (km):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/distanceDriven"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter km"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Take Public Transportation -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time Spent on Public Transport (hours):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/publicTransportTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter hours"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Cycling or Walking -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance Cycled/Walked (km):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/distanceCycled"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter km"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Flight -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of Flights:"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/numOfFlights"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter number of flights"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Food Consumption Activities -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Food Consumption Activities"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/P_Black"
+            android:paddingBottom="4dp" />
+
+        <!-- Chicken -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chicken (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/chickenServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Beef -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beef (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/beefServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Vegetarian -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetarian (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/vegetarianServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Seafood -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seafood (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/seafoodServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Pork -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pork (servings):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/porkServings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Enter servings"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Consumption and Shopping Activities -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consumption and Shopping Activities"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/P_Black"
+            android:paddingBottom="4dp" />
+
+        <!-- Buy New Clothes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Spent on Clothes ($):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/clothesSpent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Buy New Electronics -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Spent on Electronics ($):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/electronicsSpent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Spent on Bills ($):"
+                android:textColor="@color/P_Black"
+                android:layout_marginEnd="4dp"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/billsSpent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:textColor="@color/P_Black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Back"
+                android:textSize="14sp"
+                android:onClick="onBackClicked" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add Entry"
+                android:textSize="14sp"
+                android:onClick="onSubmitClicked" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
