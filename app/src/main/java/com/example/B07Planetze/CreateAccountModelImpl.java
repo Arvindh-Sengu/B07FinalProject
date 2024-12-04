@@ -1,6 +1,8 @@
 package com.example.B07Planetze;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateAccountModelImpl implements CreateAccountModel {
 
@@ -34,8 +36,24 @@ public class CreateAccountModelImpl implements CreateAccountModel {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        view.showSuccess("Account created successfully!");
-                        view.navigateToWelcomeScreen();
+                        // Get the newly created user's ID
+                        String userId = mAuth.getCurrentUser().getUid();
+
+                        // Instantiate a User object
+                        User newUser = new User(fullName, userId, password, email);
+
+                        // Push the user object to the Firebase Realtime Database
+                        FirebaseDatabase.getInstance().getReference("users")
+                                .child(userId)
+                                .setValue(newUser)
+                                .addOnCompleteListener(dbTask -> {
+                                    if (dbTask.isSuccessful()) {
+                                        view.showSuccess("Account created successfully and saved to database!");
+                                        view.navigateToWelcomeScreen();
+                                    } else {
+                                        view.showError("Error saving to database: " + dbTask.getException().getMessage());
+                                    }
+                                });
                     } else {
                         view.showError("Error: " + task.getException().getMessage());
                     }
