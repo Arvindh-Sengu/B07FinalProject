@@ -78,20 +78,24 @@ public class QuestionFragment extends Fragment {
         // When the "Next" button is clicked, update the answer in the Question object and load the next question
         nextButton.setOnClickListener(v -> {
             String answer = getSelectedAnswer();
-            if (answer != null && question != null) {
+            if (answer != null && !answer.isEmpty() && question != null) {
                 //The csv has text as 5 Occupants but need to add or more and i don't wanna change the large data set
                 if (answer.equals("5 Occupants or more")) {
                     question.setAnswer("5 Occupants");
                 } else {
                     question.setAnswer(answer);  // Set the selected answer in the Question object
+                }
 
+                // Optionally, notify the activity to load the next question
+                if (getActivity() instanceof AnnualCarbonFootprintQuestionsActivity) {
+                    ((AnnualCarbonFootprintQuestionsActivity) getActivity()).loadNextQuestion(currentQuestionIndex);
                 }
             }
-
-            // Optionally, notify the activity to load the next question
-            if (getActivity() instanceof AnnualCarbonFootprintQuestionsActivity) {
-                ((AnnualCarbonFootprintQuestionsActivity) getActivity()).loadNextQuestion(currentQuestionIndex);
+            else {
+            // Show a Toast if no answer is selected
+            Toast.makeText(getActivity(), "Please select an option to proceed.", Toast.LENGTH_SHORT).show();
             }
+
         });
 
         return view;
