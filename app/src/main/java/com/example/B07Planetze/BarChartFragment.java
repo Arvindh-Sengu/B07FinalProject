@@ -1,8 +1,6 @@
 package com.example.B07Planetze;
 
 
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

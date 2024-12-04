@@ -3,11 +3,9 @@ package com.example.B07Planetze;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.B07Planetze.R;
-import com.google.firebase.auth.FirebaseAuthException;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

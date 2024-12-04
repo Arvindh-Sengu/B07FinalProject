@@ -2,10 +2,6 @@ package com.example.B07Planetze;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
-import java.util.ArrayList;
-
 /**
  * Represents a user in the system.
  * Each user has a name, a unique ID, a password, an email, and a calendar of activities.
