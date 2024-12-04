@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     android:padding="16dp">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,136 +12,263 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
+        <!-- Earth Image -->
+        <ImageView
+            android:id="@+id/earth_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/earth"
+            android:contentDescription="Earth Cartoon"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
 
         <!-- First Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Resources for Reducing Energy"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="12dp" />
 
         <!-- Resource 1 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. Energy Star: Comprehensive energy-saving programs."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_energy_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Visit Energy Star"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Energy Star: Comprehensive energy-saving programs."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_energy_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visit"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Resource 2 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2. Department of Energy: Federal resources for energy efficiency."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_department_energy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Visit Department of Energy"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Department of Energy: Federal resources for energy efficiency."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_department_energy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visit"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Resource 3 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3. Carbon Trust: Guides on reducing carbon footprints."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_carbon_trust"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Visit Carbon Trust"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Carbon Trust: Guides on reducing carbon footprints."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_carbon_trust"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visit"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Second Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Potential Energy-Saving Products"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="12dp" />
 
         <!-- Product 1 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. Sustainable clothing: Eco-friendly apparel options."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_sustainable_clothing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Explore Sustainable Clothing"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sustainable clothing: Eco-friendly apparel options."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_sustainable_clothing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Product 2 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2. Energy-efficient appliances: Save energy at home."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_energy_appliances"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Discover Energy Appliances"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Energy-efficient appliances: Save energy at home."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_energy_appliances"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discover"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Product 3 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3. Smart thermostats: Efficient heating and cooling."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_smart_thermostats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Browse Smart Thermostats"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Smart thermostats: Efficient heating and cooling."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_smart_thermostats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Browse"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Product 4 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4. LED lights: Long-lasting and energy-saving."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_led_lights"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Check LED Lights"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="LED lights: Long-lasting and energy-saving."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_led_lights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <!-- Product 5 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="5. Solar panels: Harness renewable energy."
-            android:layout_marginBottom="4dp" />
-        <Button
-            android:id="@+id/btn_solar_panels"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Learn about Solar Panels"
-            android:layout_marginBottom="16dp" />
+            android:orientation="horizontal"
+            android:background="@drawable/resource_item_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Solar panels: Harness renewable energy."
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_solar_panels"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Learn"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+
+
     </LinearLayout>
 </ScrollView>
