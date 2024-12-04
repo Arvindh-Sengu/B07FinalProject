@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.google.firebase.auth)
     testImplementation("org.mockito:mockito-core:4.0.0")
     androidTestImplementation("org.mockito:mockito-android:4.0.0")
     implementation(platform(libs.firebase.bom))
@@ -65,4 +66,5 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("org.threeten:threetenbp:1.5.1")
 }

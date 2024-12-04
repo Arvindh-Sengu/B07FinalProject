@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/P_Grey"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@color/P_Blue"
+        android:text="Page Title"
+        android:textColor="@color/P_White"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_above="@+id/top_view"/>
+
+    <View
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/tracker_bg" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_view"
+        android:rowCount="4"
+        android:columnCount="1"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="24dp">
+
+        <!-- Transport Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/P_White"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_margin="10dp">
+            <!-- Transport Card Content Here -->
+        </androidx.cardview.widget.CardView>
+
+        <!-- Meals Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/P_White"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:layout_margin="10dp">
+            <!-- Meals Card Content Here -->
+        </androidx.cardview.widget.CardView>
+
+        <!-- Purchases Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/P_White"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:layout_margin="10dp">
+            <!-- Purchases Card Content Here -->
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Activity"
+        android:textColor="@color/P_White"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+    <!-- New TextView added here -->
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description or Additional Info Here"
+        android:textColor="@color/P_White"
+        android:textSize="18sp"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/buttonWrapper"
+        android:orientation="horizontal"
+        android:background="@color/P_Blue"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/switchBtn"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="45dp"
+            android:background="@drawable/rounded_btn"
+            android:text="Switch Date"
+            android:textStyle="bold"
+            android:textColor="@color/P_Blue"
+            />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/bluebackarrow_foreground"
+        android:background="@drawable/circle_btn"
+        android:padding="150dp"/>
+
+</RelativeLayout>

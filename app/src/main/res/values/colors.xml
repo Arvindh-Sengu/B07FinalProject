@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#1B1B1E</color>
-    <color name="white">#D8DBE2</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="P_Blue">#009999</color>
+    <color name="P_White">#d8dbe2</color>
+    <color name="P_Grey">#a9bcd0</color>
+    <color name="P_DarkGrey">#373f51</color>
+    <color name="P_Black">#1b1b1e</color>
     <color name="arctic">#A9BCD0</color>
     <color name="tealish">#009999</color>
     <color name="dusk">#373F51</color>
     <color name="error_red">#8B0000</color>
+    <color name="gray">#d8dbe2</color>
+    <color name="blue_gray">#a9bcd0</color>
+    <color name="aquamarine">#009999</color>
+    <color name="slate">#373f51</color>
+    <color name="off_black">#1b1b1e</color>
+    <color name="transparent">#00000000</color>
+    <color name="moonstone">#55ABB5</color>
+    <color name="gunmetal">#292d38</color>
+    <color name="another_gray">#467583</color>
+>>>>>>> 538f5f8267df968ce8ef70fc9ff3dc43e72def0a
 </resources>

@@ -1,5 +1,6 @@
 package com.example.B07Planetze;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class User {
     private String userId;
     private String password;
     private String email;
-    private ArrayList<Date> calendar;
+    public ArrayList<String> calendar;
 
     /**
      * Constructs a new User with the specified details.
@@ -31,6 +32,8 @@ public class User {
         this.password = password;
         this.email = email;
         this.calendar = new ArrayList<>();
+        calendar.add("hi");
+
     }
 
     // Getters and Setters
@@ -112,7 +115,7 @@ public class User {
      *
      * @return Calendar of activities
      */
-    public ArrayList<Date> getCalendar() {
+    public ArrayList<String> getCalendar() {
         return calendar;
     }
 
@@ -121,7 +124,7 @@ public class User {
      *
      * @param calendar Calendar of activities to set
      */
-    public void setCalendar(ArrayList<Date> calendar) {
+    public void setCalendar(ArrayList<String> calendar) {
         this.calendar = calendar;
     }
 
@@ -130,9 +133,9 @@ public class User {
      *
      * @param date Date to add
      */
-    public void addToCalendar(Date date) {
-        this.calendar.add(date);
-    }
+    //public void addToCalendar(Date date) {
+       // this.calendar.add(date);
+    //}
 
     /**
      * Removes a Date from the user's calendar.
@@ -140,7 +143,7 @@ public class User {
      * @param date Date to remove
      * @return True if the date was removed, false otherwise
      */
-    public boolean removeFromCalendar(Date date) {
-        return this.calendar.remove(date);
-    }
+    //public boolean removeFromCalendar(Date date) {
+      // return this.calendar.remove();
+    //}
 }
